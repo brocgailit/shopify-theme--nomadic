@@ -1,0 +1,9 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_white": "#FFFDF5",
+      "color_primary": "#E2997C"
+    }
+  }
+}
