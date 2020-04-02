@@ -1,0 +1,69 @@
+<div class="hero--background" style="background-image: url({{ section.settings.image | img_url: '2000x2000' }})"></div>
+<div class="hero--overlay" style="background-color: var(--color-light)"></div>
+<div class="hero--content container">
+  {% if section.settings.mannaz %}
+    <div class="hero--icon">
+      {% render 'logo-icon.svg' %}
+    </div>
+  {% endif %}
+  <h1 class="title">{{ section.settings.title }}</h1>
+  {% if section.settings.subtitle %}
+    <h2 class="subtitle">{{ section.settings.subtitle }}</h2>
+  {% endif %}
+  <div class="hero--actions">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'button' %}
+          <a class="button secondary" href="{{ block.settings.action }}">{{ block.settings.label }}</a>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "class": "hero fullheight",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "mannaz",
+      "label": "Show Mannaz (ᛗ)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "id": "label",
+          "type": "text",
+          "label": "Label"
+        },
+        {
+          "id": "action",
+          "type": "url",
+          "label": "Action"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

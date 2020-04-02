@@ -1,6 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main">
   <div class="navbar-brand">
-    <a href="/" class="navbar-link">{% include 'logo-wordmark' %}</a>
+    <a href="/" class="navbar-link">{% render 'logo-wordmark.svg' %}</a>
   </div>
   <div class="navbar-menu" id="navbar">
     {% for link in linklists.main-menu.links %}
@@ -11,7 +11,7 @@
           <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
         {% endfor %}]
       {% else %}
-        <a href="{{ link.url }}"  class="navbar-link">{{ link.title }} - ({{ link.url }})</a>
+        <a href="{{ link.url }}"  class="navbar-link">{{ link.title }}</a>
       {% endif %}
     {% endfor %}
     <div class="navbar-account">
@@ -28,7 +28,7 @@
   </div>
   <div class="navbar-actions">
     <a href="/cart" class="shopping-cart--button">
-        {% include 'shopping-cart' %}
+        {% render 'shopping-cart.svg' %}
     </a>
     <button aria-expanded="false" type="button">
       <span><span>Menu</span></span>
