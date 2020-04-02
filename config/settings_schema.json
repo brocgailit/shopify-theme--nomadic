@@ -13,14 +13,73 @@
       {
         "type": "color",
         "id": "color_primary",
-        "label": "Primary Color",
-        "default": "#E2997C"
+        "label": "Primary",
+        "default": "#F0CD6C"
+      },
+      {
+        "type": "color",
+        "id": "color_primary_highlight",
+        "label": "Primary Highlight"
+      },
+      {
+        "type": "color",
+        "id": "color_primary_invert",
+        "label": "Primary Inverted"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary_highlight",
+        "label": "Secondary Highlight"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary_invert",
+        "label": "Secondary Inverted"
+      },
+      {
+        "type": "color",
+        "id": "color_success",
+        "label": "Success"
+      },
+      {
+        "type": "color",
+        "id": "color_success_highlight",
+        "label": "Success Highlight"
+      },
+      {
+        "type": "color",
+        "id": "color_success_invert",
+        "label": "Success Inverted"
+      },
+      {
+        "type": "color",
+        "id": "color_black",
+        "label": "Black"
+      },
+      {
+        "type": "color",
+        "id": "color_dark",
+        "label": "Dark"
+      },
+      {
+        "type": "color",
+        "id": "color_grey",
+        "label": "Grey"
+      },
+      {
+        "type": "color",
+        "id": "color_light",
+        "label": "Light"
       },
       {
         "type": "color",
         "id": "color_white",
-        "label": "White",
-        "default": "#FFFDF5"
+        "label": "White"
       }
     ]
   }
