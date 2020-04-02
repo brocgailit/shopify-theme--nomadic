@@ -6,12 +6,13 @@
   padding: 0.5rem 1rem;
   background-color: $black;
   color: $white;
-  height: 4rem;
+  height: $navbar-height;
   max-height: 4rem;
   max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 50;
 
   .navbar-brand {
     height: 100%;
@@ -28,6 +29,9 @@
   .navbar-link {
     transition: opacity 250ms ease-in-out;
     color: $white;
+    font-family: $family-serif;
+    text-decoration: none;
+    font-size: $size-3;
     &:hover {
       opacity: 0.85;
     }
@@ -45,7 +49,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 40;
+    z-index: 1;
     opacity: 0;
 
     &.active {
@@ -67,7 +71,7 @@
   button[aria-expanded] {
     $button-size: 2rem;
     $line-weight: 3px;
-    z-index: 50;
+    z-index: 2;
     outline: none;
     background-color: transparent;
     border: none;

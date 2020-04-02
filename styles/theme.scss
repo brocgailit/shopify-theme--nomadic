@@ -1,6 +1,9 @@
 @import "../node_modules/normalize.css/normalize";
 @import "variables";
 @import "navbar";
+@import "footer";
+@import "hero";
+@import "controls";
 
 html {
   box-sizing: border-box;
@@ -16,6 +19,11 @@ body {
   color: $black;
   overflow-x: hidden;
   max-width: 100vw;
+  font-family: $family-sans-serif;
+}
+
+p {
+  margin-top: 0;
 }
 
 .shopping-cart--button {
@@ -26,4 +34,14 @@ body {
   &:hover {
     color: $primary-highlight;
   }
+}
+
+.title {
+  font-family: $family-serif;
+  font-weight: 300;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
 }

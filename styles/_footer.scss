@@ -1,0 +1,89 @@
+.page-footer {
+  background-color: $dark;
+  color: $light;
+
+  a {
+    color: $light;
+    font-weight: $weight-bold;
+    text-decoration: none;
+  }
+}
+
+.page-footer--section {
+  padding: $size-4 $size-7;
+}
+
+.page-footer--newsletter {
+  background-color: $grey;
+  text-align: center;
+  .newsletter-form {
+    display: flex;
+    input, button {
+      display: inline-flex;
+      align-items: center;
+      background-color: transparent;
+      color: $light;
+      outline: none;
+      border: 1px solid $light;
+      height: $size-3;
+    }
+    input {
+      padding: 0 $size-7;
+      flex-grow: 1;
+      border-right: none;
+      border-top-left-radius: $radius;
+      border-bottom-left-radius: $radius;
+      width: 50%;
+    }
+
+    button {
+      padding: 0 $size-5;
+      font-weight: $weight-bold;
+      border-top-right-radius: $radius;
+      border-bottom-right-radius: $radius;
+    }
+  }
+}
+
+.page-footer--menu {
+  display: flex;
+  margin-bottom: $size-6;
+  ul {
+    flex: 1 0 50%;
+    list-style: none;
+    margin: 0;
+    li {
+      margin-bottom: $size-7;
+    }
+  }
+}
+
+.page-footer--terms {
+  text-align: center;
+  a {
+    display: inline-block;
+    padding: 0.5em $size-7;
+
+    &:hover {
+      color: $white;
+    }
+
+    &:not(:last-child) {
+      border-right: 2px solid $grey;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.page-footer--attribution {
+  color: $light;
+  opacity: 0.75;
+  text-align: center;
+  margin-top: $size-7;
+}

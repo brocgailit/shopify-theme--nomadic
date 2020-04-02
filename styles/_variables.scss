@@ -1,10 +1,47 @@
 $white: var(--color-white);
 $black: var(--color-black);
 $dark: var(--color-dark);
+$light: var(--color-light);
 $grey: var(--color-grey);
 
 $primary: var(--color-primary);
+$primary-invert: var(--color-primary--invert);
 $primary-highlight: var(--color-primary--highlight);
 
 $secondary: var(--color-secondary);
+$secondary-invert: var(--color-secondary--invert);
 $secondary-highlight: var(--color-secondary--highlight);
+
+
+$colors: (
+  primary: (
+    color: $primary,
+    invert: $primary-invert,
+    highlight: $primary-highlight,
+  ),
+  secondary: (
+    color: $secondary,
+    invert: $secondary-invert,
+    highlight: $secondary-highlight
+  )
+);
+
+$family-serif: var(--family-serif);
+$family-sans-serif: var(--family-sans-serif);
+
+$weight-normal: 300;
+$weight-bold: 700;
+
+$size-1: 5rem;
+$size-2: 3.75rem;
+$size-3: 2.75rem;
+$size-4: 2rem;
+$size-5: 1.5rem;
+$size-6: 1.1rem;
+$size-7: 0.9rem;
+
+$radius: 3px;
+
+$navbar-height: 4rem;
+
+$ease-quart-out: cubic-bezier(0.25, 1, 0.5, 1);

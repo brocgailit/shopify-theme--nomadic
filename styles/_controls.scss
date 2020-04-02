@@ -1,0 +1,33 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: $weight-normal;
+  font-size: $size-6;
+  border: 1px solid $dark;
+  height: $size-3;
+  border-radius: $radius;
+  padding: 0 $size-3;
+  color: $dark;
+  transition: 250ms ease-in-out;
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+  &:hover {
+    color: $light;
+    background-color: $dark;
+  }
+
+  @each $name, $set in $colors {
+    &.#{$name} {
+      background-color: map-get($set, color);
+      border: 1px solid #{map-get($set, color)};
+      color: map-get($set, invert);
+      &:hover {
+        color: map-get($set, invert);
+        background-color: map-get($set, highlight);
+        border-color: map-get($set, highlight)
+      }
+    }
+  }
+}
