@@ -14,7 +14,7 @@
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'button' %}
-          <a class="button secondary" href="{{ block.settings.action }}">{{ block.settings.label }}</a>
+          <a class="button secondary {{ block.settings.style }} {% if block.settings.fullwidth %}fullwidth{% endif %}" href="{{ block.settings.action }}">{{ block.settings.label }}</a>
       {% endcase %}
     {% endfor %}
   </div>
@@ -61,6 +61,20 @@
           "id": "action",
           "type": "url",
           "label": "Action"
+        },
+        {
+          "id": "style",
+          "type": "select",
+          "label": "Style",
+          "options": [
+            { "value": "normal", "label": "Normal"},
+            { "value": "outlined", "label": "Outlined"}
+          ]
+        },
+        {
+          "id": "fullwidth",
+          "type": "checkbox",
+          "label": "Full Width"
         }
       ]
     }

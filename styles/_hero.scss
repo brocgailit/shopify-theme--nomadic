@@ -55,7 +55,14 @@
 }
 
 .hero--actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: $size-5;
+  max-width: 325px;
+  > * {
+    margin: $size-7 / 2;
+  }
 }
 
 .hero--icon {

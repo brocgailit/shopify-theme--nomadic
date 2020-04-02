@@ -1,6 +1,7 @@
 .button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   font-weight: $weight-normal;
   font-size: $size-6;
@@ -17,6 +18,10 @@
     color: $light;
     background-color: $dark;
   }
+  &.fullwidth {
+    width: 100%;
+    flex-grow: 1;
+  }
 
   @each $name, $set in $colors {
     &.#{$name} {
@@ -27,6 +32,15 @@
         color: map-get($set, invert);
         background-color: map-get($set, highlight);
         border-color: map-get($set, highlight)
+      }
+
+      &.outlined {
+        background-color: transparent;
+        color: map-get($set, color);
+        &:hover {
+          background-color: map-get($set, color);
+          color: map-get($set, invert);
+        }
       }
     }
   }
