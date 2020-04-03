@@ -56,10 +56,18 @@
             "source_url": "https://www.brainyquote.com/quotes/bob_saget_784877",
             "source_name": "BrainyQuote"
           }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
         }
       },
       "content_for_index": [
-        "quote"
+        "hero",
+        "quote",
+        "featured-collections"
       ]
     }
   }
