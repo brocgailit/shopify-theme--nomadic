@@ -6,7 +6,7 @@
       "color_black": "#262825",
       "color_dark": "#3D3F3D",
       "color_grey": "#4C4E4B",
-      "color_light": "#E6E5DF",
+      "color_light": "#F7F4E7",
       "color_primary": "#F0CD6C",
       "color_primary_invert": "#262825",
       "color_primary_highlight": "#F9DC8E",
@@ -27,13 +27,39 @@
       "sections": {
         "hero": {
           "type": "hero",
+          "blocks": {
+            "primary-cta": {
+              "type": "button",
+              "settings": {
+                "label": "Shop Adaptogens",
+                "action": "shopify:\/\/collections",
+                "style": "normal",
+                "fullwidth": true
+              }
+            }
+          },
+          "block_order": [
+            "primary-cta"
+          ],
           "settings": {
-            "text_size": "large"
+            "mannaz": true,
+            "title": "Adapt your vibe.",
+            "subtitle": "100% Organic Supplements",
+            "image": "shopify:\/\/shop_images\/palm-trees-sky.jpg"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>It's interesting to talk to young comedians. I love it because it makes me go, 'Oh, that's how I can be funny.'</p>",
+            "author": "Bob Sagat",
+            "source_url": "https://www.brainyquote.com/quotes/bob_saget_784877",
+            "source_name": "BrainyQuote"
           }
         }
       },
       "content_for_index": [
-        "hero"
+        "quote"
       ]
     }
   }
