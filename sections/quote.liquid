@@ -1,0 +1,41 @@
+<div class="container">
+  <blockquote cite="{{ section.settings.source_url }}">
+    {{ section.settings.quote }}
+    <footer>
+      <span class="author">{{ section.settings.author }}</span>
+      <cite>
+        <a href="{{ section.settings.source_url }}">{{ section.settings.source_name }}</a>
+      </cite>
+    </footer>
+  </blockquote>
+</p>
+
+{% schema %}
+{
+  "name": "Quote",
+  "tag": "section",
+  "class": "quote",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "quote",
+      "label": "Quote"
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Author"
+    },
+    {
+      "type": "url",
+      "id": "source_url",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "source_name",
+      "label": "Publication"
+    }
+  ]
+}
+{% endschema %}
