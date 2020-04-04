@@ -5,6 +5,7 @@
 @import "hero";
 @import "controls";
 @import "layout";
+@import "card";
 
 html {
   box-sizing: border-box;
@@ -21,6 +22,7 @@ body {
   overflow-x: hidden;
   max-width: 100vw;
   font-family: $family-sans-serif;
+  font-weight: $weight-normal;
 }
 
 main {

@@ -1,0 +1,51 @@
+.card {
+  color: $dark;
+  margin: $size-7;
+  padding: $size-7;
+  background-color: $white;
+}
+
+.card--image {
+  margin: 0;
+  width: 100%;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-bottom: calc(2/4 * 100%);
+  }
+
+  img {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.card--body {
+  font-size: $size-7;
+  padding: $size-4 0;
+  line-height: 1.5;
+}
+
+.card--header {
+  padding: $size-4 0 0;
+  .title, .subtitle {
+    display: block;
+    margin: 0;
+    line-height: 1.1
+  }
+  .title {
+    font-size: $size-3;
+    text-transform: uppercase;
+  }
+  .subtitle {
+    font-size: $size-5;
+    color: $grey;
+    opacity: 0.85;
+  }
+}
