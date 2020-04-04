@@ -1,3 +1,17 @@
+{% assign meta = product.metafields.global %}
+
 <div class="card">
-  {{ product.title }}
+  <figure class="card--image">
+    <img src="{{ product | img_url: '320x240' }}" alt="{{ product.title }} Image" />
+  </figure>
+  <div class="card--header">
+    <span class="title">{{ product.title }}</span>
+    <span class="subtitle">{{ meta.tagline }}</span>
+  </div>
+  <div class="card--body">
+    {{ meta.short_description }}
+  </div>
+  <footer class="card--footer">
+    <button class="button primary fullwidth" onclick="nomadic.addToCart({items: [{quantity: 1, id: 1234567}]})">Add to Cart</button>
+  </footer>
 </div>
