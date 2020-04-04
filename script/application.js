@@ -1,52 +1,28 @@
-class NomadicNavbar {
+import axios from 'axios';
+import NomadicNavbar from './navbar';
 
-  expanded = false;
+const $axios = axios.create({
+  baseURL: '/'
+});
 
-  constructor(container) {
-    this.container = container;
-    this.initialize();
+window.nomadic = window.nomadic || {};
+
+class NomadicApplication {
+  setNavbar(element) {
+    this.navbar = new NomadicNavbar(document.querySelector('[role="navigation"]'));
   }
 
-  initialize() {
-    this.toggleButton = this.container.querySelector('[aria-expanded]');
-    this.menu = this.container.querySelector('#navbar');
-    this.menu.addEventListener('click', () => { this.close() })
-    this.toggleButton.addEventListener('click', () => { this.toggle() });
+  addToCart({ items }) {
+    $axios.post('/cart/add.js', { items });
   }
 
-  open() {
-    this.setExpanded(true)
-  }
-
-  close() {
-    this.setExpanded(false)
-  }
-
-  toggle() {
-    this.setExpanded(!this.expanded)
-  }
-
-  setExpanded(expanded) {
-    this.expanded = expanded;
-    this.update();
-  }
-
-  update() {
-    const transition = this.expanded ? 'add' : 'remove';
-    this.toggleButton.setAttribute('aria-expanded', this.expanded);
-    this.menu.classList.add(`${transition}-active`);
-    this.menu.classList[transition]('active');
-    if (transition === 'add') {
-      setTimeout(() => {
-          this.menu.classList.remove(`${transition}-active`);
-      }, 50)
-    }
-    this.menu.addEventListener('transitionend', () => {
-      this.menu.classList.remove(`${transition}-active`);
-    });
+  async getCart() {
+    const cart = await $axios.get('/cart.js').then(res => res.data);
+    return cart;
   }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  window.NomadicWebsite = new NomadicNavbar(document.querySelector('[role="navigation"]'));
+  nomadic = new NomadicApplication();
+  nomadic.setNavbar(document.querySelector('[role="navigation"]'));
 });

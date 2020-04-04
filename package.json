@@ -7,9 +7,10 @@
   "author": "Broc Gailit <brocgailit@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "watch": "theme watch --notify=./ready.notify" 
+    "watch": "theme watch --notify=./ready.notify"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "normalize.css": "^8.0.1"
   }
 }
