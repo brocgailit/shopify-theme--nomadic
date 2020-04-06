@@ -12,6 +12,6 @@
     {{ meta.short_description }}
   </div>
   <footer class="card--footer">
-    <button class="button primary fullwidth" onclick="nomadic.addToCart({items: [{quantity: 1, id: 1234567}]})">Add to Cart</button>
+    <a class="button primary fullwidth" href="{{ product.url | within: collection }}">Add to Cart</a>
   </footer>
 </div>

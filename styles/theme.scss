@@ -82,8 +82,13 @@ a {
 }
 
 .title {
+  font-size: $size-4;
   font-family: $family-serif;
   font-weight: 300;
+}
+
+.subtitle {
+  opacity: 0.85;
 }
 
 .container {

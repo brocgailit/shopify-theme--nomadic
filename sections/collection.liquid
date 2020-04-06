@@ -1,9 +1,11 @@
 {%- assign collection = collections[section.settings.collection] -%}
 
-<h3 class="title">{{ section.settings.title }}</h3>
-{% for product in collection.products %}
-  {% render 'product-card', product: product %}
-{% endfor %}
+<div class="container">
+  <h3 class="title">{{ section.settings.title }}</h3>
+  {% for product in collection.products %}
+    {% render 'product-card', product: product %}
+  {% endfor %}
+</div>
 
 {% schema %}
 {
