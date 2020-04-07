@@ -16,7 +16,44 @@
   </footer>
 </div>
 
+
+{% javascript %}
+
+nomadic.intersect(
+  document.getElementById('shopify-section-1586211228349'),
+  true
+);
+
+{% endjavascript %}
+
 {% stylesheet 'scss' %}
+
+.shopify-section.feature {
+  .feature--content {
+    > * {
+      transition: 666ms ease-in-out;
+    }
+    @for $i from 1 through 4 {
+      > :nth-child(#{$i}) {
+        transition-delay: 150ms * $i;
+      }
+    }
+  }
+
+  &:not(.is-intersecting) {
+    .feature--content > * {
+      opacity: 0;
+      transform: translateY(33px);
+    }
+  }
+
+  &.is-intersecting {
+    .feature--content > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
 
 .feature--content {
   display: grid;
