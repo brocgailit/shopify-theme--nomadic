@@ -19,14 +19,13 @@
 
 {% javascript %}
 
-nomadic.intersect(
-  document.getElementById('shopify-section-1586211228349'),
-  true
-);
+nomadic.intersect(document.getElementById('shopify-section-1586211228349'), true);
 
 {% endjavascript %}
 
 {% stylesheet 'scss' %}
+
+$initial-delay: 250ms;
 
 .shopify-section.feature {
   .feature--content {
@@ -35,7 +34,7 @@ nomadic.intersect(
     }
     @for $i from 1 through 4 {
       > :nth-child(#{$i}) {
-        transition-delay: 150ms * $i;
+        transition-delay: $initial-delay + 150ms * $i;
       }
     }
   }
