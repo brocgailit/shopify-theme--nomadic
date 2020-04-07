@@ -1,3 +1,15 @@
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+ 
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+ 
+  @return $x1;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -40,6 +52,54 @@
         &:hover {
           background-color: map-get($set, color);
           color: map-get($set, invert);
+        }
+      }
+
+      &.arrow {
+        $arrow-width: 75px;
+        $arrow-size: 10px;
+        $arrow-thickness: 2px;
+        $arrow-offset: 10px;
+        position: relative;
+        padding: 0;
+        background-color: transparent;
+        padding-right: $arrow-width + $arrow-offset;
+        color: map-get($set, color);
+        border: none;
+        height: auto;
+        font-weight: $weight-bold;
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          opacity: 0.85;
+          transition: 100ms ease-in-out;
+        }
+        &:before {
+          right: 0;
+          top: calc(50% - #{$arrow-thickness/2});
+          height: $arrow-thickness;
+          width: $arrow-width;
+          background-color: $grey;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          top: calc(50% - #{$arrow-size/2}px);
+          right: 0;
+          width: $arrow-size;
+          height: $arrow-size;
+          border: $arrow-thickness solid $grey;
+          transform: rotate(45deg);
+          border-bottom: none;
+          border-left: none;
+        }
+        &:hover {
+          &:before {
+            transform: translateX(5px);
+          }
+          &:after {
+            transform: translateX(5px) rotate(45deg);
+          }
         }
       }
     }

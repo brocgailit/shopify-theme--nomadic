@@ -1,0 +1,114 @@
+<div class="feature--content container">
+  <figure class="feature--image">
+    <img src="{{ section.settings.image | img_url: '2000x2000' }}" alt="{{ section.settings.title }}" />
+  </figure>
+  <div class="feature--body">
+    <h1 class="title">{{ section.settings.title }}</h1>
+    {{ section.settings.text }}
+  </div>
+  <footer class="feature--footer">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'button' %}
+          <a class="button secondary {{ block.settings.style }} {% if block.settings.fullwidth %}fullwidth{% endif %}" href="{{ block.settings.action }}">{{ block.settings.label }}</a>
+      {% endcase %}
+    {% endfor %}
+  </footer>
+</div>
+
+{% stylesheet 'scss' %}
+
+.feature--content {
+  display: grid;
+  grid-row-gap: 1rem;
+  grid-template-areas:
+    'image'
+    'body'
+    'footer';
+}
+
+.feature--footer {
+  grid-area: footer;
+}
+
+.feature--body {
+  grid-area: body;
+}
+
+.feature--image {
+  grid-area: image;
+  margin: 0;
+  max-width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+
+    filter: grayscale(100%) brightness(110%) contrast(150%);
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Feature",
+  "tag": "section",
+  "class": "feature has-background-white",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "id": "label",
+          "type": "text",
+          "label": "Label"
+        },
+        {
+          "id": "action",
+          "type": "url",
+          "label": "Action"
+        },
+        {
+          "id": "style",
+          "type": "select",
+          "label": "Style",
+          "options": [
+            { "value": "normal", "label": "Normal"},
+            { "value": "outlined", "label": "Outlined"},
+            { "value": "arrow", "label": "Arrow"}
+          ]
+        },
+        {
+          "id": "fullwidth",
+          "type": "checkbox",
+          "label": "Full Width"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Section",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

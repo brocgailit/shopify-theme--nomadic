@@ -1,0 +1,5 @@
+@each $name, $set in $colors {
+  .has-background-#{$name} {
+    background-color: map-get($set, color) !important;
+  }
+}

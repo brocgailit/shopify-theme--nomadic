@@ -23,6 +23,11 @@ $colors: (
     color: $secondary,
     invert: $secondary-invert,
     highlight: $secondary-highlight
+  ),
+  white: (
+    color: $white,
+    invert: $dark,
+    highlight: $primary
   )
 );
 
