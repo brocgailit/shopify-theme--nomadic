@@ -1,0 +1,110 @@
+<div class="container">
+  <header class="social-feature--header">
+    <h3 class="title">{{ section.settings.title }}</h3>
+    <ul class="social-feature--links">
+      {% for block in section.blocks %}
+        <li>
+          <a class="social-feature--icon" href="{{ block.settings.url }}" target="_blank">
+            {% render 'social-icon.svg', icon: block.settings.platform %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </header>
+  {% if section.settings.lightwidget %}
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+    <iframe
+      src="//lightwidget.com/widgets/{{ section.settings.lightwidget }}.html"
+      scrolling="no"
+      allowtransparency="true"
+      class="lightwidget-widget"
+    ></iframe>
+  {% endif %}
+</div>
+
+{% stylesheet 'scss' %}
+
+.social-feature--header,
+.social-feature--links {
+  display: flex;
+  align-items: center;
+}
+
+.social-feature--header {
+  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  .title {
+    margin: 0;
+  }
+}
+
+.social-feature--links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-feature--icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 16px;
+}
+
+.lightwidget-widget {
+  width:100%;
+  border:0;
+  overflow:hidden;
+}
+
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Social Feature",
+  "tag": "section",
+  "class": "social-feature has-background-white",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "lightwidget",
+      "label": "LightWidget ID for Instagram"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "social",
+      "name": "Social Link",
+      "settings": [
+        {
+          "id": "platform",
+          "type": "select",
+          "label": "Platform",
+          "options": [
+            { "value": "facebook", "label": "Facebook"},
+            { "value": "twitter", "label": "Twitter"},
+            { "value": "instagram", "label": "Instagram"},
+            { "value": "pinterest", "label": "Pinterest"}
+          ]
+        },
+        {
+          "id": "url",
+          "type": "url",
+          "label": "Profile URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Social Feature with Instagram",
+      "category": "Social"
+    }
+  ]
+}
+{% endschema %}
