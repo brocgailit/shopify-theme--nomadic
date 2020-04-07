@@ -6,7 +6,7 @@
   padding: $size-5 $size-7;
   background-color: $light;
   &.fullheight {
-    height: calc(100vh - #{$navbar-height} - 40px);
+    height: calc(100vh - #{$navbar-height} + 1px);
   }
 
   .title, .subtitle {
