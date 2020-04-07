@@ -77,6 +77,16 @@ a {
   padding: $size-3 0;
   &.quote {
     background-color: $light;
+    transition: opacity 2s ease-in-out;
+
+    &:not(.is-intersecting) {
+      opacity: 0;
+    }
+
+    &.is-intersecting {
+      opacity: 1;
+    }
+
     blockquote {
       color: $grey;
       margin: $size-6;
