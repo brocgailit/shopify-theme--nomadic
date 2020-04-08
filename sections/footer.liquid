@@ -4,8 +4,11 @@
       I would like to receive communications about Nomadic Effects products,
       services, and events.
     </p>
-    <form class="newsletter-form">
-      <input type="email" name="email" placeholder="Email Address" />
+    <form class="newsletter-form" id="mailchimpForm">
+      <input type="email" name="email" placeholder="Email Address" value="brocgailit@gmail.com" />
+      <input type="hidden" name="mc_server" value="{{section.settings.mc_server}}" />
+      <input type="hidden" name="mc_user" value="{{section.settings.mc_user}}" />
+      <input type="hidden" name="mc_list" value="{{section.settings.mc_list}}" />
       <button type="submit">
         Submit
       </button>
@@ -46,10 +49,62 @@
   <div class="page-footer--attribution">&copy; {{ shop.name }}</div>
 </div>
 
+
+{% javascript %}
+var form = document.getElementById('mailchimpForm');
+
+function jsonp(url, callback) {
+  var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+  window[callbackName] = function(data) {
+      delete window[callbackName];
+      document.body.removeChild(script);
+      callback(data);
+  };
+
+  var script = document.createElement('script');
+
+  script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'c=' + callbackName;
+  document.body.appendChild(script);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  var email = form.querySelector('[name=email]').value;
+  var server = form.querySelector('[name=mc_server]').value;
+  var user = form.querySelector('[name=mc_user]').value;
+  var list = form.querySelector('[name=mc_list]').value;
+
+  jsonp('https://'+server+'.list-manage.com/subscribe/post-json?u='+user+'&id='+list+'&EMAIL='+email, function(data) {
+    form.innerHTML = '<p style="text-align: center; width: 100%; font-weight: bold;">'+data.msg+'</p>';
+  });
+
+}
+
+form.addEventListener('submit', handleSubmit);
+
+{% endjavascript %}
+
 {% schema %}
 {
   "name": "Footer",
   "tag": "footer",
-  "class": "page-footer"
+  "class": "page-footer",
+  "settings": [
+    {
+      "id": "mc_list",
+      "type": "text",
+      "label": "Mailchimp List ID"
+    },
+    {
+      "id": "mc_user",
+      "type": "text",
+      "label": "Mailchimp User ID"
+    },
+    {
+      "id": "mc_server",
+      "type": "text",
+      "label": "Mailchimp Server"
+    }
+  ]
 }
 {% endschema %}
