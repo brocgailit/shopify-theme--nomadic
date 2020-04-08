@@ -1,0 +1,188 @@
+<div class="container">
+  {% assign questions = section.blocks | map: "settings" %}
+
+  {%
+    assign categories = "
+      products: Our Adaptogenic Blends,
+      shipping: Shipping,
+      wholesale: Wholesale
+    " | split: ','
+  %}
+
+  {% for category in categories %}
+    <div class="faq--category">
+      {% assign c = category | split: ':' %}
+      {% assign title = c[1] | strip %}
+      {% assign id = c[0] | strip %}
+      {% assign category_questions = questions | where: "category", id  %}
+      {% assign count = category_questions | size %}
+      {% if count > 0 %}
+        <h3 class="title">{{ title }}</h3>
+        {% for question in category_questions %}
+          <div class="faq--block">
+            <input id="faq-{{id}}-{{ forloop.index }}" type="checkbox" class="faq--toggle" />
+            <label for="faq-{{id}}-{{ forloop.index }}" class="faq--toggle-indicator">Toggle</label>
+            <dl>
+              <dt class="faq--question">
+                {{ question.question }}
+              </dt>
+              <dd class="faq--answer">
+                {{ question.answer }}
+              </dd>
+            </dl>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+
+{% assign total = section.blocks | size %}
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity": [
+      {% for question in section.blocks %}
+        {"@type": "Question","name": "{{question.settings.question}}","acceptedAnswer": {"@type": "Answer","text": "{{question.settings.answer | strip_html}}"}}
+        {% if forloop.index < total %},{% endif %}
+      {% endfor %}
+    ]
+  }
+</script>
+
+{% stylesheet 'scss' %}
+
+$faq-padding: 2rem;
+
+.faq--category {
+  &:not(:last-child) {
+    margin-bottom: $faq-padding * 2;
+  }
+
+  .title {
+    margin-bottom: 0.5em;
+  }
+}
+
+.faq--question {
+  font-size: 125%;
+  font-weight: 500;
+}
+
+.faq--answer {
+
+  margin: 0;
+  opacity: 0;
+  height: 0;
+  transform: translateY(-10px);
+  transition: 100ms ease-in-out;
+  strong {
+    font-weight: 500;
+  }
+}
+
+.faq--block {
+  position: relative;
+  padding: $faq-padding 0;
+  dl {
+    margin: 0;
+  }
+  dt {
+    padding-right: $faq-padding;
+  }
+  &:first-child {
+    padding-top: 0;
+  }
+  &:last-child {
+    padding-bottom: 0;
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+  }
+}
+
+.faq--toggle {
+  opacity: 0;
+  height: 0;
+  width: 0;
+
+  &, + label {
+    position: absolute;
+  }
+
+  + label {
+    display: block;
+    right: 0;
+    top: $faq-padding;
+    width: 100%;
+    height: 100%;
+    text-indent: -99999px;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.33;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="10"><circle cx="50" cy="50" r="45" /><line x1="50" x2="50" y1="25" y2="75" /><line y1="50" y2="50" x1="25" x2="75" /></g></svg>');
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 1.5rem 1.5rem;
+
+  }
+
+  &:checked {
+    + label {
+      background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="10"><circle cx="50" cy="50" r="45" /><line y1="50" y2="50" x1="25" x2="75" /></g></svg>');
+      + * .faq--answer {
+        transform: translateY(0);
+        opacity: 1;
+        height: auto;
+        padding-top: 1.5em;
+      }
+    }
+  }
+}
+
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "faq has-background-white",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "id": "category",
+          "type": "select",
+          "label": "Platform",
+          "options": [
+            { "value": "products", "label": "Products"},
+            { "value": "shipping", "label": "Shipping"},
+            { "value": "wholesale", "label": "Wholesale"}
+          ]
+        },
+        {
+          "id": "question",
+          "type": "text",
+          "label": "Question"
+        },
+        {
+          "id": "answer",
+          "type": "richtext",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Section",
+      "category": "Info"
+    }
+  ]
+}
+{% endschema %}

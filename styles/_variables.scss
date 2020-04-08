@@ -28,6 +28,11 @@ $colors: (
     color: $white,
     invert: $dark,
     highlight: $primary
+  ),
+  light: (
+    color: $light,
+    invert: $dark,
+    highlight: $white
   )
 );
 
@@ -35,6 +40,7 @@ $family-serif: var(--family-serif);
 $family-sans-serif: var(--family-sans-serif);
 
 $weight-normal: 300;
+$weight-medium: 500;
 $weight-bold: 700;
 
 $size-1: 5rem;
