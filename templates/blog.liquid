@@ -1,19 +1,29 @@
 {% paginate blog.articles by 5 %}
 
-<h1>{{ blog.title }}</h1>
+{% render 'page-header', title: blog.title %}
+
+<div class="container">
 {% for article in blog.articles %}
-  <div>
-    <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-    {{ article.author }} @ {{ article.created_at }}
-    <div>
+  <div class="card">
+    <figure class="card--image">
+      <img src="{{ article | img_url: '320x240' }}" alt="{{ article.title }} - Featured Image" />
+    </figure>
+    <div class="card--header">
+      <span class="title"><a href="{{ article.url }}">{{ article.title }}</a></span>
+    </div>
+    <div class="card--body">
       {% if article.excerpt.size > 0 %}
         {{ article.excerpt }}
       {% else %}
         <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
       {% endif %}
     </div>
+    <footer class="card--footer has-text-small">
+      {{ article.author }} @ {{ article.created_at }}
+    </footer>
   </div>
 {% endfor %}
+</div>
 
 {% if paginate.pages > 1 %}
   {{ paginate | default_pagination }}

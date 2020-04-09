@@ -3,12 +3,18 @@
   {% assign number_of_comments = article.comments_count %}
 {% endif %}
 
-<h1>{{ article.title }}</h1>
-{% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
-{% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
-{{ article.author }} @ {{ article.created_at }}
+{% capture header_content %}
+  <p>
+    <strong>{{ article.author }}</strong>
+    <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'abbreviated_date' }}</time>
+  </p>
+{% endcapture %}
 
-<div>{{ article.content }}</div>
+{% render 'page-header', title: article.title, content: header_content, background_image: article.image %}
+
+
+<div class="container">{{ article.content }}</div>
+
 {% if blog.comments_enabled? %}
   <h2>{{ number_of_comments }} comments</h2>
   {% paginate article.comments by 5 %}
