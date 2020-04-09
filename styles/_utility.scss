@@ -3,3 +3,19 @@
     background-color: map-get($set, color) !important;
   }
 }
+
+.has-text-uppercase {
+  text-transform: uppercase;
+}
+
+.has-text-large {
+  font-size: $size-2 !important;
+}
+
+.has-text-medium {
+  font-size: $size-6 !important;
+}
+
+.has-text-small {
+  font-size: $size-7 !important;
+}
