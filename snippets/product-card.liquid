@@ -5,7 +5,11 @@
     <img src="{{ product | img_url: '320x240' }}" alt="{{ product.title }} Image" />
   </figure>
   <div class="card--header">
-    <span class="title">{{ product.title }}</span>
+    <span class="title has-text-uppercase">
+      <a href="{{ product.url | within: collection }}">
+        {{ product.title }}
+      </a>
+    </span>
     <span class="subtitle">{{ meta.tagline }}</span>
   </div>
   <div class="card--body">
