@@ -48,13 +48,17 @@
 
 .page-footer--menu {
   display: flex;
+  justify-content: center;
   margin-bottom: $size-6;
   ul {
-    flex: 1 0 50%;
     list-style: none;
     margin: 0;
+    padding: 0;
     li {
       margin-bottom: $size-7;
+    }
+    &:nth-child(2) {
+      margin-left: $size-5;
     }
   }
 }
