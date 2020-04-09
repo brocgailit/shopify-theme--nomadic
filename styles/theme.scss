@@ -7,6 +7,8 @@
 @import "controls";
 @import "layout";
 @import "card";
+@import "product";
+@import "breadcrumbs";
 
 html {
   box-sizing: border-box;
@@ -65,8 +67,8 @@ a {
 }
 
 .subtitle {
-  opacity: 0.85;
-  font-weight: $weight-medium;
+  opacity: 0.65;
+  font-weight: $weight-normal;
 }
 
 .container {

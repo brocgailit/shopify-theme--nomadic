@@ -1,29 +1,98 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-<img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
-{% for image in product.images %}
-  <a href="{{ image.src | img_url: 'large' }}">
-    <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
-  </a>
-{% endfor %}
-<h1 class="title">{{ product.title }}</h1>
-<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-  <select name="id" id="productSelect">
-    {% for variant in product.variants %}
-      {% if variant.available %}
-        <option value="{{ variant.id }}">
-          {{ variant.title }} - {{ variant.price | money_with_currency }}
-        </option>
-      {% else %}
-        <option disabled="disabled">
-          {{ variant.title }} - sold out
-        </option>
-      {% endif %}
-    {% endfor %}
-  </select>
-  {{ current_variant.price | money }}
-  <label for="Quantity">quantity</label>
-  <input type="number" id="Quantity" name="quantity" value="1" min="1">
-  <button type="submit" name="add" id="AddToCart">Add to cart</button>
-</form>
-<div>{{ product.description }}</div>
+{% assign current_collection = product.collections | first %}
+
+<header class="product--header">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li>
+        <a href="{{ current_collection.url }}">{{ current_collection.title }}</a>  
+      </li>
+      <li>
+        {{ product.title }} {{ product.metafields.global.tagline }}
+      </li>
+    </ul>
+    <div class="product--header--content">
+      <figure class="product--header--image">
+        <img src="{{ featured_image | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+        <figcaption>100% USDA Certified Organic</figcaption>
+      </figure>
+      <div class="product--header--cta">
+        <span class="title">{{ current_variant.price | money_with_currency }}</span>
+        <span class="">{{ current_variant.title }}</span>
+        <button class="button secondary fullwidth">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="product--info container">
+  <h1 class="title">{{ product.title }}</h1>
+  <h2 class="subtitle">{{ product.metafields.global.tagline }}</h2>
+  <div>
+    {{ product.description }}
+  </div>
+</div>
+
+<div class="container">
+  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+    <select name="id" id="productSelect">
+      {% for variant in product.variants %}
+        {% if variant.available %}
+          <option value="{{ variant.id }}">
+            {{ variant.title }} - {{ variant.price | money_with_currency }}
+          </option>
+        {% else %}
+          <option disabled="disabled">
+            {{ variant.title }} - sold out
+          </option>
+        {% endif %}
+      {% endfor %}
+    </select>
+    {{ current_variant.price | money }}
+    <label for="Quantity">quantity</label>
+    <input type="number" id="Quantity" name="quantity" value="1" min="1">
+    <button type="submit" name="add" id="AddToCart">Add to cart</button>
+  </form>
+</div>
+
+<div class="container">
+  {% for image in product.images %}
+    <a href="{{ image.src | img_url: 'large' }}">
+      <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+    </a>
+  {% endfor %}
+</div>
+
+<div class="container">
+  <h3 class="title">Usage Instructions</h3>
+  <div>
+    {{ product.metafields.global.usage }}
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@id": "http://example.com",
+        "name": "{{ product.title }}"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@id": "http://example.com/news",
+        "name": "{{ product.title }}"
+      }
+    }
+  ]
+}
+</script>
+  
