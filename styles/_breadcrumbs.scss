@@ -1,0 +1,22 @@
+.breadcrumbs {
+  font-size: $size-7;
+  color: $grey;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  li {
+    display: inline;
+    &:not(:last-child):after {
+      content: '/'
+    }
+  }
+
+  a {
+    color: $grey;
+    &:hover {
+      color: $dark;
+      text-decoration: underline;
+    }
+  }
+}
