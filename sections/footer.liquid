@@ -18,7 +18,7 @@
 
 {% assign menu = linklists[section.settings.menu] %}
 {% assign total_links = menu.links | size %}
-{% assign col_size = total_links | divided_by: 2 | at_least: 2 %}
+{% assign col_size = total_links | divided_by: 2.0 | ceil %}
 
 <div class="page-footer--section">
   <div class="page-footer--menu">
