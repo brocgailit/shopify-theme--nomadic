@@ -1,3 +1,4 @@
+{{ product.handle }}
 <div class="container">
   {% assign questions = section.blocks | map: "settings" %}
 
@@ -10,30 +11,30 @@
   %}
 
   {% for category in categories %}
-    <div class="faq--category">
       {% assign c = category | split: ':' %}
       {% assign title = c[1] | strip %}
       {% assign id = c[0] | strip %}
       {% assign category_questions = questions | where: "category", id  %}
       {% assign count = category_questions | size %}
       {% if count > 0 %}
-        <h3 class="title">{{ title }}</h3>
-        {% for question in category_questions %}
-          <div class="faq--block">
-            <input id="faq-{{id}}-{{ forloop.index }}" type="checkbox" class="faq--toggle" />
-            <label for="faq-{{id}}-{{ forloop.index }}" class="faq--toggle-indicator">Toggle</label>
-            <dl>
-              <dt class="faq--question">
-                {{ question.question }}
-              </dt>
-              <dd class="faq--answer">
-                {{ question.answer }}
-              </dd>
-            </dl>
-          </div>
-        {% endfor %}
+        <div class="faq--category">
+          <h3 class="title">{{ title }}</h3>
+          {% for question in category_questions %}
+            <div class="faq--block">
+              <input id="faq-{{id}}-{{ forloop.index }}" type="checkbox" class="faq--toggle" />
+              <label for="faq-{{id}}-{{ forloop.index }}" class="faq--toggle-indicator">Toggle</label>
+              <dl>
+                <dt class="faq--question">
+                  {{ question.question }}
+                </dt>
+                <dd class="faq--answer">
+                  {{ question.answer }}
+                </dd>
+              </dl>
+            </div>
+          {% endfor %}
+        </div>
       {% endif %}
-    </div>
   {% endfor %}
 </div>
 
@@ -174,14 +175,13 @@ $faq-padding: 2rem;
           "id": "answer",
           "type": "richtext",
           "label": "Answer"
+        },
+        {
+          "id": "product",
+          "type": "product",
+          "label": "Product"
         }
       ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "FAQ Section",
-      "category": "Info"
     }
   ]
 }

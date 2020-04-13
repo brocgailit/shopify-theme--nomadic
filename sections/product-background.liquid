@@ -1,0 +1,32 @@
+<div class="bg-filter" style="background-image: url({{ section.settings.background | img_url: '2000x2000' }})"></div>
+
+{% schema %}
+{
+  "name": "Background",
+  "class": "product--background",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background",
+      "label": "Background"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Background",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet 'scss' %}
+.product--background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+{% endstylesheet %}

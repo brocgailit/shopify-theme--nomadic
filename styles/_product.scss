@@ -1,8 +1,13 @@
 $header-offset: $size-3;
 
 .product--header {
+  position: relative;
   background-color: $light;
   margin-bottom: $header-offset;
+  .container {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .product--header--content {
@@ -58,5 +63,25 @@ $header-offset: $size-3;
     font-size: $size-3;
     margin: 0;
     text-transform: uppercase;
+  }
+}
+
+.product--ingredients {
+  h1, h2, h3, h4, h5, h6 {
+    color: $dark;
+    font-weight: $weight-bold;
+    font-size: $size-6;
+    margin-bottom: 0.25em;
+  }
+  p {
+    font-size: $size-7;
+    color: $grey;
+  }
+}
+
+.product--usage {
+  p i {
+    font-size: $size-8;
+    font-style: normal;
   }
 }
