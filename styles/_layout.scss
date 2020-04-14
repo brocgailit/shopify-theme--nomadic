@@ -34,3 +34,12 @@
     margin-bottom: 0;
   }
 }
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  > *:not(:last-child) {
+    margin-bottom: $size-7;
+  }
+}
