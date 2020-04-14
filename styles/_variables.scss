@@ -33,6 +33,11 @@ $colors: (
     color: $light,
     invert: $dark,
     highlight: $white
+  ),
+  dark: (
+    color: $dark,
+    invert: $light,
+    highlight: $black
   )
 );
 
