@@ -19,7 +19,7 @@ $header-offset: $size-3;
   width: 40%;
   max-width: 350px;
   padding: $size-7;
-  margin: 0;
+  overflow: visible;
   img {
     position: absolute;
     bottom: 0;
@@ -83,5 +83,16 @@ $header-offset: $size-3;
   p i {
     font-size: $size-8;
     font-style: normal;
+  }
+}
+
+.product-recommendations {
+  margin-bottom: $size-3;
+}
+
+.product-recommendations--header {
+  .title {
+    font-size: $size-5;
+    margin-bottom: $size-6;
   }
 }
