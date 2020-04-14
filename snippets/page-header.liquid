@@ -1,8 +1,13 @@
 <header class="page--header has-background-light{% if background_image %} has-background{% endif %}">
   {% if background_image %}
-    <div class="page--header--background" style="background-image: url({{ background_image | img_url: '2000x2000' }})"></div>
+    <div class="page--header--background bg-filter" style="background-image: url({{ background_image | img_url: '2000x2000' }})"></div>
   {% endif %}
   <div class="container">
+    {% if mannaz %}
+      <div class="hero--icon {{mannaz}}">
+        {% render 'logo-icon.svg' %}
+      </div>
+    {% endif %}
     <h1 class="title">{{ title }}</h1>
     {% if subtitle %}
       <h2 class="subtitle">{{ subtitle }}</h2>
