@@ -87,6 +87,10 @@ figure {
 section.shopify-section {
   background-color: $light; 
   padding: $size-3 0;
+  &:empty {
+    display: none;
+  }
+
   &.quote {
     background-color: $light;
     transition: opacity 2s ease-in-out;
