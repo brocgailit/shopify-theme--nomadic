@@ -1,6 +1,6 @@
 {% assign meta = product.metafields.global %}
 
-<div class="card">
+<div class="card" onclick="window.location.href = '{{ product.url | within: collection }}'">
   <figure class="card--image">
     <img src="{{ product | img_url: '320x240' }}" alt="{{ product.title }} Image" />
   </figure>
@@ -16,6 +16,9 @@
     <p>{{ meta.short_description }}</p>
   </div>
   <footer class="card--footer">
-    <a class="button primary fullwidth" href="{{ product.url | within: collection }}">Add to Cart</a>
+    <div class="stack">
+      <a class="button primary fullwidth" href="{{ product.url | within: collection }}">Add to Cart | {{ product.price | money }}</a>
+      <a class="has-text-small" href="{{ product.url | within: collection }}">View Product Details</a>
+    </div>
   </footer>
 </div>
