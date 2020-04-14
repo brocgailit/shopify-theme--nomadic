@@ -1,11 +1,20 @@
-{%- assign collection = collections[section.settings.collection] -%}
+{% assign collection = collections[section.settings.collection] %}
 
 <div class="container">
   <h3 class="title">{{ section.settings.title }}</h3>
   {% for product in collection.products %}
     {% render 'product-card', product: product %}
   {% endfor %}
+  <footer class="collection--footer">
+    <a class="button dark arrow" href="{{ collection.url }}">View more {{ collection.title }}</a>
+  </footer>
 </div>
+
+{% stylesheet %}
+.collection--footer {
+  margin-top: 2em;
+}
+{% endstylesheet %}
 
 {% schema %}
 {
