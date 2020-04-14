@@ -52,6 +52,10 @@
   margin: 0 auto;
   width: $size-2;
   height: $size-2;
+  &.small {
+    width: $size-3;
+    height: $size-3;
+  }
 }
 
 @keyframes slideUp {
