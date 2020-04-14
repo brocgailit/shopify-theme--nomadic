@@ -1,0 +1,122 @@
+{% if section.settings.show_recommendations %}
+
+  <header class="container product-recommendations--header">
+    <h3 class="title">
+      You may also like
+    </h3>
+  </header>
+  <div class="product-recommendations" data-product-id="{{ product.id }}" data-limit="4">
+    {% if recommendations.products_count > 0 %}
+      <div class="product-recommendations--carousel main-carousel">
+        {% for product in recommendations.products %}
+          <div class="carousel-cell" id="carousel-cell-{{forloop.index}}">
+            <figure>
+              <img class="product-recommendations--product-image" src="{{ product | img_url: '200x200' }}" alt="{{ product.title }} Image" />
+            </figure>
+            <div>
+              <h4 class="title has-text-uppercase">{{ product.title }}</h4>
+              <h5 class="subtitle">{{ product.metafields.global.tagline }}</h5>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+{% endif %}{% javascript %}
+
+var selector = ".product-recommendations";
+var section = document.querySelector(".product-recommendations");
+var limit = section.dataset.limit;
+var id = section.dataset.productId;
+
+var loadRecommendations = function() {
+  if(!section) return;
+
+  nomadic.recommendations(id, limit, selector, function() {
+    var flickity = new Flickity(".product-recommendations--carousel");
+    for (var i = 1; i < 5; i++) {
+      (function(){
+        var cell = document.getElementById('carousel-cell-'+i);
+        nomadic.intersect(cell, false, function(intersection) {
+          var ratio = intersection.intersectionRatio;
+          cell.classList[ratio >= 0.5 ? 'add' : 'remove']('fade-in');
+        });
+      })()
+    }
+  });
+}
+
+
+document.addEventListener("shopify:section:load", function(event) {
+  if (event.detail.sectionId === "product-recommendations") {
+    loadRecommendations();
+  }
+});
+
+loadRecommendations();
+
+{% endjavascript %}{% stylesheet 'scss' %}
+
+.product-recommendations--header {
+  .title {
+    text-align: center;
+    opacity: 0.5;
+  }
+}
+
+.product-recommendations--product-image {
+  width: auto;
+  height: 100%;
+}
+
+.carousel-cell {
+
+  transition: opacity 1s ease-in-out;
+
+  &:not(.fade-in) {
+    opacity: 0;
+  }
+
+  .fade-in {
+    opacity: 1;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+
+  .title, .subtitle {
+    text-align: center;
+  }
+
+  .title {
+    margin-bottom: 0;
+    margin-top: 0.333em;
+  }
+
+}
+
+{% endstylesheet %}{% schema %}
+
+{
+  "name": "Recommendations",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_recommendations",
+      "label": "Turn on product recommendations",
+      "default": true
+    }
+  ]
+}
+
+{% endschema %}
