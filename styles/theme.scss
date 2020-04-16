@@ -69,6 +69,12 @@ figure {
   }
 }
 
+.title, .subtitle {
+  line-height: 1.1;
+  margin: 0;
+  display: block;
+}
+
 .title {
   font-size: $size-4;
   font-family: $family-serif;

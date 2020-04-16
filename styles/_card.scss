@@ -59,11 +59,6 @@
 
 .card--header {
   padding: $size-4 0 0;
-  .title, .subtitle {
-    display: block;
-    margin: 0;
-    line-height: 1.1
-  }
   .title {
     font-size: $size-3;
     line-height: 1;

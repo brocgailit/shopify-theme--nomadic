@@ -9,10 +9,6 @@
     height: calc(100vh - #{$navbar-height} + 1px);
   }
 
-  .title, .subtitle {
-    margin: 0;
-  }
-
   .title {
     font-size: $size-3;
   }
