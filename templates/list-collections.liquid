@@ -1,17 +1,21 @@
-{% for collection in collections %}
-  {% unless collection.handle == 'frontpage' %}
-    {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
-    <a href="{{ collection.url }}">More {{ collection_title }} &rsaquo;</a>
-    {% for product in collection.products limit:5 %}
-      {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
-      <div>
-        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-        {{ product.price | money }}
-        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-        <a href="{{ product.url | within: collection }}">
-          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-        </a>
+{% render 'page-header', title: page_title, subtitle: collection.metafields.global.subtitle, background_image: collection.image %}
+
+<section class="section">
+  {% for collection in collections %}
+    {% unless collection.handle == 'frontpage' %}
+    {% unless collection.handle == 'all' %}
+      <div class="container">
+        {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+        <h2 class="title has-text-uppercase">
+          {{ collection_title }}
+        </h2>
+        <p class="subtitle">{{ collection.metafields.global.subtitle }}</p>
+        {% for product in collection.products limit:5 %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+        <a href="{{ collection.url }}" class="button arrow dark">More {{ collection_title }}</a>
       </div>
-    {% endfor %}
-  {% endunless %}
-{% endfor %}
+    {% endunless %}
+    {% endunless %}
+  {% endfor %}
+</section>

@@ -1,0 +1,20 @@
+{% render 'page-header', title: collection.title, subtitle: collection.metafields.global.subtitle, background_image: collection.image %}
+<section>
+  <div class="container">
+    {{ collection.content }}
+  </div>
+</section>
+<section>
+  <div class="container">
+    {% paginate collection.products by 2 %}
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% else %}
+        <p>no matches</p>
+      {% endfor %}
+      {% if paginate.pages > 1 %}
+        {{ paginate | default_pagination }}
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
