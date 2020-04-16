@@ -1,0 +1,70 @@
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  flex: 1 0 100%;
+  margin-top: $size-7;
+
+  &:not(:last-child) {
+    margin-bottom: $size-8;
+  }
+}
+
+.label {
+  display: block;
+  font-size: $size-6;
+  font-weight: $weight-bold;
+  line-height: 1;
+  color: $grey;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  padding: 0 $size-8/2;
+  transition: 100ms ease-in-out;
+  bottom: calc(50% - #{$size-6/2});
+  left: $size-8;
+  text-shadow: 1px 1px 2px $white, -1px -1px 2px $white, -1px 1px 2px $white, 1px -1px 2px $white;
+}
+
+.textarea + .label {
+  top: $size-7;
+  bottom: auto;
+}
+
+.input, .select, .textarea {
+  z-index: 0;
+  width: 100%;
+  max-width: 100%;
+  border-radius: $radius;
+  color: $dark;
+  background-color: $white;
+  border: 1px solid $light;
+  font-size: $size-6;
+  padding: $size-8 $size-8;
+
+  &:not(:required) + .label:after {
+    content: ' (Optional)';
+    font-weight: $weight-normal;
+    font-size: $size-7;
+    opacity: 1;
+  }
+
+  &:focus {
+    border-color: $grey;
+  }
+
+  &:focus + .label,
+  &[data-touched=true][data-has-value=true] + .label {
+    top: auto;
+    bottom: calc(100% - #{$size-8 / 2});
+    font-size: $size-8;
+    &:after {
+      opacity: 0;
+    }
+  }
+}

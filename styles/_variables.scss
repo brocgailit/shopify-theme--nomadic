@@ -13,6 +13,8 @@ $secondary-invert: var(--color-secondary--invert);
 $secondary-highlight: var(--color-secondary--highlight);
 
 
+$success: var(--color-success);
+
 $colors: (
   primary: (
     color: $primary,
@@ -23,6 +25,11 @@ $colors: (
     color: $secondary,
     invert: $secondary-invert,
     highlight: $secondary-highlight
+  ),
+  success: (
+    color: $success,
+    invert: $white,
+    highlight: $success
   ),
   white: (
     color: $white,
