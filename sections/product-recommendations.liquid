@@ -9,12 +9,14 @@
     {% if recommendations.products_count > 0 %}
       <div class="product-recommendations--carousel main-carousel">
         {% for product in recommendations.products %}
-          <div class="carousel-cell" id="carousel-cell-{{forloop.index}}">
+          <div class="carousel-cell" id="carousel-cell-{{forloop.index}}" data-product-url="{{ product.url }}">
             <figure>
               <img class="product-recommendations--product-image" src="{{ product | img_url: '200x200' }}" alt="{{ product.title }} Image" />
             </figure>
             <div>
-              <h4 class="title has-text-uppercase">{{ product.title }}</h4>
+              <h4 class="title has-text-uppercase">
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              </h4>
               <h5 class="subtitle">{{ product.metafields.global.tagline }}</h5>
             </div>
           </div>
@@ -37,10 +39,17 @@ var loadRecommendations = function() {
   if(!section) return;
 
   nomadic.recommendations(id, limit, selector, function() {
+
     var flickity = new Flickity(".product-recommendations--carousel");
+
+    flickity.on('staticClick', function(event, pointer, cellElement) {
+      window.location.href = cellElement.dataset.productUrl;
+    })
+
     for (var i = 1; i < 5; i++) {
       (function(){
         var cell = document.getElementById('carousel-cell-'+i);
+
         nomadic.intersect(cell, false, function(intersection) {
           var ratio = intersection.intersectionRatio;
           cell.classList[ratio >= 0.5 ? 'add' : 'remove']('fade-in');
@@ -74,6 +83,10 @@ loadRecommendations();
 }
 
 .carousel-cell {
+
+  > * {
+    cursor: pointer;
+  }
 
   transition: opacity 1s ease-in-out;
 
