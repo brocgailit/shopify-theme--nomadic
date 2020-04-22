@@ -17,7 +17,15 @@
   </div>
   <footer class="card--footer">
     <div class="stack">
-      <a class="button primary fullwidth" href="{{ product.url | within: collection }}">Add to Cart | {{ product.price | money }}</a>
+      <shopify-add-to-cart
+        min="0"
+        quantity="1"
+        variants='{{ product.variants | json }}'
+        hide-variants
+        hide-increment
+        hide-total
+      >
+      </shopify-add-to-cart>
       <a class="has-text-small" href="{{ product.url | within: collection }}">View Product Details</a>
     </div>
   </footer>

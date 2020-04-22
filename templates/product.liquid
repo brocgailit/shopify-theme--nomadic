@@ -24,7 +24,15 @@
       <div class="product--header--cta">
         <span class="title">{{ current_variant.price | money_with_currency }}</span>
         <span class="">{{ current_variant.title }}</span>
-        <button class="button secondary fullwidth">Add to Cart</button>
+        <shopify-add-to-cart
+          min="0"
+          quantity="1"
+          variants='{{ product.variants | json }}'
+          hide-variants
+          hide-increment
+          hide-total
+        >
+        </shopify-add-to-cart>
       </div>
     </div>
   </div>
@@ -44,12 +52,17 @@
   </div>
 </div>
 
-<div class="container">
-  <shopify-add-to-cart
-    min="0"
-    quantity="1"
-    variants='{{ product.variants | json }}'
-  ></shopify-add-to-cart>
+<div class="has-background-light">
+  <div class="container">
+    <shopify-add-to-cart
+      style="margin: 0 auto"
+      min="0"
+      quantity="1"
+      variants='{{ product.variants | json }}'
+      hide-total
+    >
+    </shopify-add-to-cart>
+  </div>
 </div>
 
 <div class="container product--usage">
