@@ -1,0 +1,37 @@
+.checkout {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout--item {
+  display: grid;
+  grid-row-gap: $size-8;
+  grid-column-gap: $size-8;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    'image header'
+    'image footer'
+}
+
+.checkout--item--image {
+  grid-area: image;
+}
+
+.checkout--item--header,
+.checkout--item--footer {
+  padding-right: $size-8;
+}
+
+.checkout--item--header {
+  padding-top: $size-8;
+  grid-area: header;
+}
+
+.checkout--item--footer {
+  padding-bottom: $size-8;
+  grid-area: footer;
+}
+
+.checkout--item--quantity {
+  width: 4rem;
+}

@@ -1,6 +1,6 @@
 {% paginate blog.articles by 5 %}
 
-{% render 'page-header', title: blog.title %}
+{% render 'page-header', title: blog.title, mannaz: 'small' %}
 
 <div class="container">
 {% for article in blog.articles %}
@@ -19,7 +19,9 @@
       {% endif %}
     </div>
     <footer class="card--footer has-text-small">
-      {{ article.author }} @ {{ article.created_at }}
+      {{ article.author }}
+      •
+      {{ article.created_at | date: format: 'abbreviated_date' }}
     </footer>
   </div>
 {% endfor %}

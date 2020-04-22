@@ -10,6 +10,7 @@
 @import "product";
 @import "breadcrumbs";
 @import "form";
+@import "checkout";
 
 html {
   box-sizing: border-box;
@@ -44,10 +45,10 @@ p {
 
 a {
   text-decoration: none;
-  color: $secondary;
+  color: $link;
   transition: color 1s ease-in-out;
   &:hover {
-    color: $secondary-highlight;
+    color: $link-highlight;
   }
 }
 
@@ -146,4 +147,44 @@ section.shopify-section {
   opacity: 0.15;
   background-size: cover;
   background-position: center;
+}
+
+.delete {
+  $size: $size-6;
+  $line-width: 2px;
+  opacity: 0.333;
+  position: relative;
+  display: inline-block;
+  width: $size;
+  height: $size;
+  overflow: hidden;
+  text-indent: -99999px;
+  background-color: $grey;
+  border-radius: 100%;
+  transition: opacity 100ms ease-in-out;
+
+  &:hover {
+    opacity: 0.666;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: $white;
+    width: 66%;
+    height: $line-width;
+    border-radius: $line-width;
+    top: calc(50% - #{$line-width / 2});
+    left: calc((100% - 66%) / 2);
+  }
+
+  &:before {
+    transform: rotate(-45deg);
+  }
+
+  &:after {
+    transform: rotate(45deg);
+  }
+
 }

@@ -1,19 +1,21 @@
-$white: var(--color-white);
-$black: var(--color-black);
-$dark: var(--color-dark);
-$light: var(--color-light);
-$grey: var(--color-grey);
+$white: var(--shopify--color-white);
+$black: var(--shopify--color-black);
+$dark: var(--shopify--color-dark);
+$light: var(--shopify--color-light);
+$grey: var(--shopify--color-grey);
 
-$primary: var(--color-primary);
-$primary-invert: var(--color-primary--invert);
-$primary-highlight: var(--color-primary--highlight);
+$primary: var(--shopify--color-primary);
+$primary-invert: var(--shopify--color-primary--invert);
+$primary-highlight: var(--shopify--color-primary--highlight);
 
-$secondary: var(--color-secondary);
-$secondary-invert: var(--color-secondary--invert);
-$secondary-highlight: var(--color-secondary--highlight);
+$secondary: var(--shopify--color-secondary);
+$secondary-invert: var(--shopify--color-secondary--invert);
+$secondary-highlight: var(--shopify--color-secondary--highlight);
 
+$link: var(--shopify--color-link);
+$link-highlight: var(--shopify--color-link-hightlight);
 
-$success: var(--color-success);
+$success: var(--shopify--color-success);
 
 $colors: (
   primary: (
@@ -48,23 +50,23 @@ $colors: (
   )
 );
 
-$family-serif: var(--family-serif);
-$family-sans-serif: var(--family-sans-serif);
+$family-serif: var(--shopify--family-serif);
+$family-sans-serif: var(--shopify--family-sans-serif);
 
 $weight-normal: 300;
 $weight-medium: 500;
 $weight-bold: 700;
 
-$size-1: 5rem;
-$size-2: 3.75rem;
-$size-3: 2.75rem;
-$size-4: 2rem;
-$size-5: 1.5rem;
-$size-6: 1.1rem;
-$size-7: 0.9rem;
-$size-8: 0.7rem;
+$size-1: var(--shopify--size-1);
+$size-2: var(--shopify--size-2);
+$size-3: var(--shopify--size-3);
+$size-4: var(--shopify--size-4);
+$size-5: var(--shopify--size-5);
+$size-6: var(--shopify--size-6);
+$size-7: var(--shopify--size-7);
+$size-8: var(--shopify--size-8);
 
-$radius: 3px;
+$radius: var(--shopify--radius);
 
 $navbar-height: 4rem;
 

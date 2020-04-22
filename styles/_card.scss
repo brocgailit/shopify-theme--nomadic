@@ -1,19 +1,10 @@
-.card {
+.box {
+  z-index: 1;
   position: relative;
-  color: $dark;
-  margin: $size-7 0;
-  padding: $size-7;
   background-color: $white;
-  cursor: pointer;
-
-  > * {
-    position: relative;
-  }
-
-  &, &:before {
-    transition: 250ms ease-in-out;
-  }
+  margin: $size-7 0;
   &:before {
+    z-index: -1;
     opacity: 0.1;
     position: absolute;
     top: 0;
@@ -22,6 +13,21 @@
     height: 100%;
     content: '';
     box-shadow: 0 0 15px $dark;
+  }
+}
+
+.card {
+  @extend .box;
+  color: $dark;
+  padding: $size-7;
+  cursor: pointer;
+
+  > * {
+    position: relative;
+  }
+
+  &, &:before {
+    transition: 250ms ease-in-out;
   }
   &:hover {
     transform: translateY(-3px);

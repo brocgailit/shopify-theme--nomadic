@@ -63,6 +63,9 @@ $header-offset: $size-3;
     font-size: $size-3;
     text-transform: uppercase;
   }
+  .subtitle {
+    margin-bottom: $size-6;
+  }
 }
 
 .product--ingredients {
