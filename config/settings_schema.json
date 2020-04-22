@@ -43,6 +43,21 @@
       },
       {
         "type": "color",
+        "id": "color_link",
+        "label": "Link"
+      },
+      {
+        "type": "color",
+        "id": "color_link_highlight",
+        "label": "Link Highlight"
+      },
+      {
+        "type": "color",
+        "id": "color_link_invert",
+        "label": "Link Inverted"
+      },
+      {
+        "type": "color",
         "id": "color_success",
         "label": "Success"
       },
