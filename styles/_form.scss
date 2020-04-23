@@ -43,7 +43,7 @@ form {
   border-radius: $radius;
   color: $dark;
   background-color: $white;
-  border: 1px solid $light;
+  border: 1px solid $grey;
   font-size: $size-6;
   padding: $size-8 $size-8;
 
@@ -55,7 +55,10 @@ form {
   }
 
   &:focus {
-    border-color: $grey;
+    border-color: $dark-grey;
+    & + .label {
+      color: $dark-grey;
+    }
   }
 
   &:focus + .label,
