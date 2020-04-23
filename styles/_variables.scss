@@ -71,3 +71,9 @@ $radius: var(--shopify--radius);
 $navbar-height: 4rem;
 
 $ease-quart-out: cubic-bezier(0.25, 1, 0.5, 1);
+
+$breakpoint-mobile: 375px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-widescreen: 1280px;
+$breakpoint-fullhd: 1920px;

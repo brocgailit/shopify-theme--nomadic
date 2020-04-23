@@ -3,30 +3,45 @@
     <a href="/" class="navbar-link">{% render 'logo-wordmark.svg' %}</a>
   </div>
   <div class="navbar-menu" id="navbar">
-    {% for link in linklists.main-menu.links %}
-      {% assign child_list_handle = link.title | handleize %}
-      {% if linklists[child_list_handle].links != blank %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-        [{% for childlink in linklists[child_list_handle].links %}
-          <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-        {% endfor %}]
-      {% else %}
-        <a href="{{ link.url }}"  class="navbar-link">{{ link.title }}</a>
-      {% endif %}
-    {% endfor %}
-    <div class="navbar-account">
-        {% if shop.customer_accounts_enabled %}
-        {% if customer %}
-          <a href="/account" class="navbar-link">account</a>
-          {{ 'log out'  | customer_logout_link }}
+    <div class="main-menu">
+      {% for link in linklists.main-menu.links %}
+        {% assign child_list_handle = link.title | handleize %}
+        {% if linklists[child_list_handle].links != blank %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+          [{% for childlink in linklists[child_list_handle].links %}
+            <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+          {% endfor %}]
         {% else %}
-          {{ 'log in ' | customer_login_link }}
-          {{ 'register' | customer_register_link }}
+          <a href="{{ link.url }}" class="navbar-link" data-active="{{ link.active }}">{{ link.title }}</a>
         {% endif %}
-      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="secondary-menu">
+      {% for link in linklists.secondary-menu.links %}
+        {% assign child_list_handle = link.title | handleize %}
+        {% if linklists[child_list_handle].links != blank %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+          [{% for childlink in linklists[child_list_handle].links %}
+            <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+          {% endfor %}]
+        {% else %}
+          <a href="{{ link.url }}"  class="navbar-link" data-active="{{ link.active }}">{{ link.title }}</a>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
   <div class="navbar-actions">
+    {% if shop.customer_accounts_enabled %}
+      <div class="navbar-account">
+          {% if customer %}
+            <a href="/account" class="navbar-link">account</a>
+            {{ 'log out'  | customer_logout_link }}
+          {% else %}
+            {{ 'log in ' | customer_login_link }}
+            {{ 'register' | customer_register_link }}
+          {% endif %}
+      </div>
+    {% endif %}
     <a href="/cart" class="shopping-cart--button">
         {% render 'shopping-cart.svg' %}
     </a>
