@@ -82,6 +82,7 @@
     .navbar-link {
       font-size: $size-3;
       font-family: $family-serif;
+      margin-bottom: $size-5;
     }
 
     .navbar-menu {
@@ -113,6 +114,19 @@
     
       a {
         color: $white;
+      }
+
+      .main-menu, .secondary-menu {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .secondary-menu {
+        .navbar-link {
+          font-size: $size-5;
+          font-family: $family-sans-serif;
+          font-weight: $weight-normal;
+        }
       }
     }
 
