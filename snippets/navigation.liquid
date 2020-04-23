@@ -42,9 +42,9 @@
           {% endif %}
       </div>
     {% endif %}
-    <a href="/cart" class="shopping-cart--button">
-        {% render 'shopping-cart.svg' %}
-    </a>
+    <shopify-cart-button href="/cart" class="shopping-cart--button" id="shopping-cart">
+      {% render 'shopping-cart.svg' %}
+    </shopify-cart-button>
     <button aria-expanded="false" type="button">
       <span><span>Menu</span></span>
     </button>

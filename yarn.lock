@@ -47,6 +47,12 @@ normalize.css@^8.0.1:
 
 "shopify-add-to-cart@https://github.com/brocgailit/shopify-add-to-cart":
   version "0.0.5"
-  resolved "https://github.com/brocgailit/shopify-add-to-cart#1123d408a52d4a1e65e1e027d3dd6dfbe18e1c00"
+  resolved "https://github.com/brocgailit/shopify-add-to-cart#31d43c24e4798c1a00c8314016ce1b376cb7b9f9"
+  dependencies:
+    lit-element "^2.3.1"
+
+"shopify-cart-button@https://github.com/brocgailit/shopify-cart-button":
+  version "0.0.5"
+  resolved "https://github.com/brocgailit/shopify-cart-button#302306f18e83ca4095fa693e894f55527f57f78a"
   dependencies:
     lit-element "^2.3.1"

@@ -28,6 +28,7 @@
           min="0"
           quantity="1"
           variants='{{ product.variants | json }}'
+          notify="shopping-cart"
           hide-variants
           hide-increment
           hide-total
@@ -56,6 +57,7 @@
   <div class="container">
     <shopify-add-to-cart
       style="margin: 0 auto"
+      notify="shopping-cart"
       min="0"
       quantity="1"
       variants='{{ product.variants | json }}'

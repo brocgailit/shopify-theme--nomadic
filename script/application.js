@@ -8,8 +8,15 @@ const $axios = axios.create({
 window.nomadic = window.nomadic || {};
 
 class NomadicApplication {
+
+  constructor() {
+    document.addEventListener('shopify:updatecart', function(event) {
+      console.log(event);
+    });
+  }
+
   setNavbar(element) {
-    this.navbar = new NomadicNavbar(document.querySelector('[role="navigation"]'));
+    this.navbar = new NomadicNavbar(element);
   }
 
   addToCart({ items }) {
