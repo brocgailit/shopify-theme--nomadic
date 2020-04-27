@@ -9,9 +9,13 @@
           {{ collection_title }}
         </h2>
         <p class="subtitle">{{ collection.metafields.global.subtitle }}</p>
-        {% for product in collection.products limit:5 %}
-          {% render 'product-card', product: product %}
-        {% endfor %}
+        <div class="columns">
+          {% for product in collection.products limit:5 %}
+            <div class="column">
+              {% render 'product-card', product: product %}
+            </div>
+          {% endfor %}
+        </div>
         <a href="{{ collection.url }}" class="button arrow dark">More {{ collection_title }}</a>
       </div>
     {% endunless %}
