@@ -4,7 +4,7 @@
     {{ collection.content }}
   </div>
 </section>
-<section>
+<section class="container">
   <div class="columns">
     {% paginate collection.products by 6 %}
       {% for product in collection.products %}
