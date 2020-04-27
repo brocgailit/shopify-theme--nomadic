@@ -1,5 +1,5 @@
-{% render 'page-header', title: 'Your cart.' %}
-<section class="section">
+{% render 'page-header', title: 'Your Cart', subtitle: 'Free Shipping on Orders Over $100' %}
+<section class="section shopify-section has-background-white">
   {% if cart.item_count > 0 %}
     <form action="/cart" method="post" novalidate class="container checkout">
       {% for item in cart.items %}
@@ -36,7 +36,20 @@
       </div>
     </form>
   {% else %}
-    <h2>cart</h2>
-    Cart is empty
+    <div class="container" style="text-align: center">
+      <h3 class="title">
+        Your cart is empty.
+      </h3>
+      <h4 class="subtitle" style="margin-top: 0.666em;">
+        Add a few items to adapt your vibe!
+      </h4>
+    </div>
+    <div class="container">
+      <p style="text-align: center">
+        <a href="/collections/adaptogens" class="button secondary" >
+          Shop Adaptogens
+        </a>
+      </p>
+    </div>
   {% endif %}
 </section>

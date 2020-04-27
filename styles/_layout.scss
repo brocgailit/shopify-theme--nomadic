@@ -26,7 +26,7 @@
 
   .content,
   .subtitle {
-    margin: $size-6 0 0 0;
+    margin: $size-8 0 0 0;
   }
 
   .content p {
@@ -40,5 +40,29 @@
   align-items: center;
   > *:not(:last-child) {
     margin-bottom: $size-7;
+  }
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(#{$size-8} * -1);
+}
+
+.column {
+  $desktop-width: 33.3%;
+  $tablet-width: 50%;
+  width: 100%;
+  max-width: 100%;
+  padding: $size-8;
+  @include tablet {
+    width: $tablet-width;
+    max-width: $tablet-width;
+    flex: 1 0 $tablet-width;
+  }
+  @include desktop {
+    width: $desktop-width;
+    max-width: $desktop-width;
+    flex: 1 0 $desktop-width;
   }
 }

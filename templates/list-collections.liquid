@@ -1,5 +1,4 @@
 {% render 'page-header', title: page_title, subtitle: collection.metafields.global.subtitle, background_image: collection.image %}
-
 <section class="section">
   {% for collection in collections %}
     {% unless collection.handle == 'frontpage' %}

@@ -5,10 +5,12 @@
   </div>
 </section>
 <section>
-  <div class="container">
-    {% paginate collection.products by 2 %}
+  <div class="columns">
+    {% paginate collection.products by 6 %}
       {% for product in collection.products %}
-        {% render 'product-card', product: product %}
+        <div class="column">
+          {% render 'product-card', product: product %}
+        </div>
       {% else %}
         <p>no matches</p>
       {% endfor %}
