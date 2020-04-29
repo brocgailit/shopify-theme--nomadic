@@ -1,8 +1,8 @@
 .breadcrumbs {
   font-size: $size-7;
-  color: $dark-grey;
+  color: $grey;
   list-style: none;
-  margin: 0;
+  margin: 0 0 $size-7;
   padding: 0;
   display: inline-block;
   li {
@@ -13,7 +13,7 @@
   }
 
   a {
-    color: $dark-grey;
+    color: $grey;
     &:hover {
       color: $dark;
       text-decoration: underline;
