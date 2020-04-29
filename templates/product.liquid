@@ -17,13 +17,15 @@
       </li>
     </ul>
     <div class="product--header--content">
-      <figure class="product--header--image">
-        <img src="{{ featured_image | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
-        <figcaption>100% USDA Certified Organic</figcaption>
-      </figure>
+      <div class="product--header--image-container">
+        <figure class="product--header--image product--jar-shadow">
+          <img src="{{ featured_image | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}">
+          <figcaption>{{ featured_image.alt }}</figcaption>
+        </figure>
+      </div>
       <div class="product--header--cta">
         <span class="title">{{ current_variant.price | money_with_currency }}</span>
-        <span class="">{{ current_variant.title }}</span>
+        <span class="subtitle">{{ current_variant.title }}</span>
         <shopify-add-to-cart
           min="0"
           quantity="1"

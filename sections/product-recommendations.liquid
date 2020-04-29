@@ -10,7 +10,7 @@
       <div class="product-recommendations--carousel main-carousel">
         {% for product in recommendations.products %}
           <div class="carousel-cell" id="carousel-cell-{{forloop.index}}" data-product-url="{{ product.url }}">
-            <figure>
+            <figure class="product--jar-shadow">
               <img class="product-recommendations--product-image" src="{{ product | img_url: '200x200' }}" alt="{{ product.title }} Image" />
             </figure>
             <div>
@@ -115,6 +115,10 @@ loadRecommendations();
     margin-top: 0.333em;
   }
 
+  figure {
+    height: 125px;
+  }
+  
 }
 
 {% endstylesheet %}{% schema %}
