@@ -45,14 +45,8 @@ normalize.css@^8.0.1:
   resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
   integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
 
-"shopify-add-to-cart@https://github.com/brocgailit/shopify-add-to-cart":
+"shopify-web-components@https://github.com/brocgailit/shopify-web-components":
   version "0.0.5"
-  resolved "https://github.com/brocgailit/shopify-add-to-cart#77fa4e8fface95967795748bb48531e72db66862"
-  dependencies:
-    lit-element "^2.3.1"
-
-"shopify-cart-button@https://github.com/brocgailit/shopify-cart-button":
-  version "0.0.5"
-  resolved "https://github.com/brocgailit/shopify-cart-button#302306f18e83ca4095fa693e894f55527f57f78a"
+  resolved "https://github.com/brocgailit/shopify-web-components#b40c1d705131304c35cb57ab763f493fa5d2fe2f"
   dependencies:
     lit-element "^2.3.1"

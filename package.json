@@ -14,8 +14,7 @@
     "axios": "^0.19.2",
     "lit-element": "^2.3.1",
     "normalize.css": "^8.0.1",
-    "shopify-add-to-cart": "https://github.com/brocgailit/shopify-add-to-cart",
-    "shopify-cart-button": "https://github.com/brocgailit/shopify-cart-button"
+    "shopify-web-components": "https://github.com/brocgailit/shopify-web-components"
   },
   "devDependencies": {}
 }

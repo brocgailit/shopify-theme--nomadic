@@ -1,2 +1,1 @@
-export * from 'shopify-add-to-cart';
-export * from 'shopify-cart-button';
+export * from 'shopify-web-components';
