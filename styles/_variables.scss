@@ -14,7 +14,7 @@ $secondary-invert: var(--shopify--color-secondary--invert);
 $secondary-highlight: var(--shopify--color-secondary--highlight);
 
 $link: var(--shopify--color-link);
-$link-highlight: var(--shopify--color-link-hightlight);
+$link-highlight: var(--shopify--color-link--highlight);
 
 $success: var(--shopify--color-success);
 
@@ -69,7 +69,7 @@ $size-8: var(--shopify--size-8);
 
 $radius: var(--shopify--radius);
 
-$navbar-height: 4rem;
+$navbar-height: var(--shopify--navbar-height);
 
 $ease-quart-out: cubic-bezier(0.25, 1, 0.5, 1);
 
