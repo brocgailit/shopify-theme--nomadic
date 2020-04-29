@@ -42,7 +42,7 @@
           {% endif %}
       </div>
     {% endif %}
-    <shopify-cart-button href="/cart" class="shopping-cart--button" id="shopping-cart">
+    <shopify-cart-button href="/cart" class="shopping-cart--button" id="shopping-cart" quantity="{{ cart.item_count }}">
       {% render 'shopping-cart.svg' %}
     </shopify-cart-button>
     <button aria-expanded="false" type="button">
