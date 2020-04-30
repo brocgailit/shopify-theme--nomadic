@@ -2,9 +2,13 @@
 
 <div class="container">
   <h3 class="title">{{ section.settings.title }}</h3>
-  {% for product in collection.products %}
-    {% render 'product-card', product: product %}
-  {% endfor %}
+  <div class="columns">
+    {% for product in collection.products %}
+      <div class="column">
+        {% render 'product-card', product: product %}
+      </div>
+    {% endfor %}
+  </div>
   <footer class="collection--footer">
     <a class="button dark arrow" href="{{ collection.url }}">View more {{ collection.title }}</a>
   </footer>
