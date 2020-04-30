@@ -54,6 +54,25 @@
   }
 }
 
+@include desktop {
+  .hero {
+    .title {
+      font-size: $size-1;
+    }
+    .subtitle {
+      font-size: $size-4;
+    }
+  }
+
+  .hero--actions {
+    margin-top: $size-2;
+    .button {
+      font-size: $size-5;
+      height: $size-2;
+    }
+  }
+}
+
 @keyframes slideUp {
   0% {
     transform: translateY(33px);
