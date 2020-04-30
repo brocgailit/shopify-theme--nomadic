@@ -2,7 +2,9 @@
   z-index: 1;
   position: relative;
   background-color: $white;
+  border-radius: var(--shopify--radius);
   &:before {
+    border-radius: var(--shopify--radius);
     z-index: -1;
     opacity: 0.1;
     position: absolute;
@@ -14,6 +16,7 @@
     box-shadow: 0 0 15px transparent;
   }
 }
+
 
 .card {
   @extend .box;
@@ -29,7 +32,7 @@
   }
 
   &, &:before {
-    transition: 250ms ease-in-out;
+    transition: 450ms ease-in-out;
   }
   &:hover {
     &:before {
@@ -69,6 +72,7 @@
 }
 
 .card--header {
+  text-align: center;
   padding: $size-4 0 0;
   .title {
     font-size: $size-3;
