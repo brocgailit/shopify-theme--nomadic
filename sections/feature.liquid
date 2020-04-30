@@ -18,7 +18,7 @@
 
 
 {% javascript %}
-nomadic.intersect(document.getElementById('shopify-section-1586391429042'), true);
+nomadic.intersect(document.querySelector('.shopify-section.feature'), true);
 {% endjavascript %}
 
 {% stylesheet 'scss' %}
@@ -80,6 +80,28 @@ $initial-delay: 250ms;
     filter: grayscale(100%) brightness(110%) contrast(150%);
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .feature--content {
+    grid-column-gap: 5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      'image body'
+      'image footer'
+  }
+  .feature--body, .feature--footer {
+    display: flex;
+  }
+  .feature--body {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .feature--footer {
+    justify-content: flex-end;
+  }
+}
+
 {% endstylesheet %}
 
 {% schema %}
@@ -137,11 +159,23 @@ $initial-delay: 250ms;
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "Feature Section",
-      "category": "Image"
-    }
-  ]
+  "presets": [{
+    "name": "Feature Section",
+    "category": "Image",
+    "settings": {
+      "title": "Enter your title.",
+      "text": "<p>Describe the stuff?</p>"
+    },
+    "blocks": [
+      {
+        "type": "button",
+        "settings": {
+          "label": "Button Label",
+          "style": "arrow",
+          "fullwidth": false
+        }
+      }
+    ]
+  }]
 }
 {% endschema %}
