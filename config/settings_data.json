@@ -23,11 +23,12 @@
       "navbar_height": "4rem",
       "size_1": "5rem",
       "size_2": "3.75rem",
-      "size_3": "2.75rem",
+      "size_3": "2.5rem",
       "size_4": "2rem",
-      "size_5": "1.5rem",
-      "size_6": "1.1rem",
+      "size_5": "1.33rem",
+      "size_6": "1rem",
       "size_7": "0.9rem",
+      "size_8": "0.7rem",
       "sections": {
         "hero": {
           "type": "hero",
@@ -61,16 +62,38 @@
             "source_name": "BrainyQuote"
           }
         },
+        "feature": {
+          "type": "feature",
+          "settings": {
+            "title": "Enter your title.",
+            "text": "<p>Describe the stuff?</p>"
+          },
+          "blocks": {
+            "call-to-action": {
+              "type": "button",
+              "settings": {
+                "label": "Shop Adaptogens",
+                "action": "shopify:\/\/collections",
+                "style": "arrow",
+                "fullwidth": false
+              }
+            }
+          },
+          "block_order": [
+            "call-to-action"
+          ]
+        },
         "featured-collections": {
           "type": "collection",
           "settings": {
-            "collection": "frontpage"
+            "collection": "all"
           }
         }
       },
       "content_for_index": [
         "hero",
         "quote",
+        "feature",
         "featured-collections"
       ]
     }
