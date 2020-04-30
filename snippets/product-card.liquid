@@ -2,7 +2,7 @@
 
 <div class="card" onclick="window.location.href = '{{ product.url | within: collection }}'">
   <div class="card--header">
-    <figure class="product--jar-shadow" style="width: 110px; margin-bottom: 1rem">
+    <figure class="product--jar-shadow" style="width: 110px; margin: 0 auto 1rem">
       <img src="{{ product | img_url: '320x240' }}" alt="{{ product.title }} Image" style="width: 100%" />
     </figure>
     <span class="title has-text-uppercase">
