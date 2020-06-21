@@ -10,8 +10,8 @@
       <div class="product-recommendations--carousel main-carousel">
         {% for product in recommendations.products %}
           <div class="carousel-cell" id="carousel-cell-{{forloop.index}}" data-product-url="{{ product.url }}">
-            <figure class="product--jar-shadow">
-              <img class="product-recommendations--product-image" src="{{ product | img_url: '200x200' }}" alt="{{ product.title }} Image" />
+            <figure class="{% if product.type == 'Adaptogen' %}product--jar-shadow{% endif %}">
+              <img class="product-recommendations--product-image" src="{{ product | img_url: '250x250' }}" alt="{{ product.title }} Image" />
             </figure>
             <div>
               <h4 class="title has-text-uppercase">
@@ -40,7 +40,7 @@ var loadRecommendations = function() {
 
   nomadic.recommendations(id, limit, selector, function() {
 
-    var flickity = new Flickity(".product-recommendations--carousel");
+    var flickity = new Flickity(".product-recommendations--carousel", {wrapAround: true});
 
     flickity.on('staticClick', function(event, pointer, cellElement) {
       window.location.href = cellElement.dataset.productUrl;
@@ -119,6 +119,22 @@ loadRecommendations();
     height: 125px;
   }
   
+}
+
+@media screen and (min-width: 1024px) {
+  .carousel-cell {
+    width: 33%;
+    height: 400px;
+    figure {
+      height: 250px;
+    }
+    .title {
+      font-size: var(--shopify--size-3);
+    }
+    .subtitle {
+      font-size: var(--shopify--size-6);
+    }
+  }
 }
 
 {% endstylesheet %}{% schema %}

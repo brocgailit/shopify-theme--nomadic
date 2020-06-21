@@ -12,8 +12,9 @@
 
 {% render 'page-header', title: article.title, content: header_content, background_image: article.image %}
 
-
-<div class="container">{{ article.content }}</div>
+<section class="shopify-section has-background-white">
+  <div class="container">{{ article.content }}</div>
+</section>
 
 {% if blog.comments_enabled? %}
   <h2>{{ number_of_comments }} comments</h2>

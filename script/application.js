@@ -9,11 +9,7 @@ window.nomadic = window.nomadic || {};
 
 class NomadicApplication {
 
-  constructor() {
-    document.addEventListener('shopify:updatecart', function(event) {
-      console.log(event);
-    });
-  }
+  constructor() {}
 
   setNavbar(element) {
     this.navbar = new NomadicNavbar(element);

@@ -1,6 +1,6 @@
 .container {
   padding: $size-7;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -31,6 +31,16 @@
 
   .content p {
     margin-bottom: 0;
+  }
+
+
+  @include desktop {
+    &.has-background {
+      min-height: 33vw;
+    }
+    .title {
+      font-size: $size-2;
+    }
   }
 }
 

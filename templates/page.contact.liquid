@@ -1,33 +1,40 @@
 {% render 'page-header', title: page.title, mannaz: 'small' %}
-<div class="container">
-  {% form 'contact' %}
-    {% if form.posted_successfully? %} Thank you for your contact {% endif %}
-    {{ form.errors | default_errors }}
-
-    <div class="field">
-      <input class="input" type="text" id="ContactFormName" name="contact[name]" required>
-      <label class="label" for="ContactFormName">Name</label>
+<section class="shopify-section has-background-white">
+  {% if page.content %}
+    <div class="container">
+      {{ page.content }}
     </div>
+  {% endif %}
+  <div class="container">
+    {% form 'contact' %}
+      {% if form.posted_successfully? %} Thank you for your contact {% endif %}
+      {{ form.errors | default_errors }}
 
-    <div class="field">
-      <input class="input" type="email" id="ContactFormEmail" name="contact[email]" required>
-      <label class="label" for="ContactFormEmail">Email</label>
-    </div>
+      <div class="field">
+        <input class="input" type="text" id="ContactFormName" name="contact[name]" required>
+        <label class="label" for="ContactFormName">Name</label>
+      </div>
 
-    <div class="field">
-      <input class="input" type="tel" id="ContactFormPhone" name="contact[phone]">
-      <label class="label" for="ContactFormPhone">Phone Number</label>
-    </div>
+      <div class="field">
+        <input class="input" type="email" id="ContactFormEmail" name="contact[email]" required>
+        <label class="label" for="ContactFormEmail">Email</label>
+      </div>
 
-    <div class="field">
-      <textarea class="textarea" rows="10" id="ContactFormMessage" name="contact[body]" required></textarea>
-      <label class="label" for="ContactFormMessage">Message</label>
-    </div>
+      <div class="field">
+        <input class="input" type="tel" id="ContactFormPhone" name="contact[phone]">
+        <label class="label" for="ContactFormPhone">Phone Number</label>
+      </div>
 
-    <button type="submit" class="button success fullwidth">Send</button>
-    
-  {% endform %}
-</div>
+      <div class="field">
+        <textarea class="textarea" rows="10" id="ContactFormMessage" name="contact[body]" required></textarea>
+        <label class="label" for="ContactFormMessage">Message</label>
+      </div>
+
+      <button type="submit" class="button success fullwidth">Send</button>
+      
+    {% endform %}
+  </div>
+</section>
 
 <script>
   (function() {

@@ -5,7 +5,7 @@
       services, and events.
     </p>
     <form class="newsletter-form" id="mailchimpForm">
-      <input type="email" name="email" placeholder="Email Address" value="brocgailit@gmail.com" />
+      <input type="email" name="email" placeholder="Email Address" />
       <input type="hidden" name="mc_server" value="{{section.settings.mc_server}}" />
       <input type="hidden" name="mc_user" value="{{section.settings.mc_user}}" />
       <input type="hidden" name="mc_list" value="{{section.settings.mc_list}}" />
@@ -40,8 +40,9 @@
     {% endif %}
   </div>
   <div class="page-footer--terms">
-    <a href="/">Terms &amp; Conditions</a>
-    <a href="/">Privacy Policy</a>
+    {% for policy in shop.policies %}
+      <a href="{{ policy.url }}">{{ policy.title }}</a>
+    {% endfor %}
   </div>
   <div class="page-footer--attribution">&copy; {{ shop.name }}</div>
 </div>
@@ -107,6 +108,13 @@ form.addEventListener('submit', handleSubmit);
       "type": "link_list",
       "label": "Menu"
     }
-  ]
+  ],
+  "default": {
+    "settings": {
+      "mc_list": "cd378d2ae2",
+      "mc_user": "399af7019fce6fba3d5df5bd8",
+      "mc_server": "us4"
+    }
+  }
 }
 {% endschema %}

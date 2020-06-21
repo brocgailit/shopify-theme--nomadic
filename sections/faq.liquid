@@ -1,5 +1,5 @@
 {{ product.handle }}
-<div class="container">
+<div class="container faq--container">
   {% assign questions = section.blocks | map: "settings" %}
 
   {%
@@ -56,6 +56,24 @@
 {% stylesheet 'scss' %}
 
 $faq-padding: 2rem;
+
+@media screen and (min-width: 1024px) {
+  .faq--container {
+    columns: 2;
+    column-gap: $faq-padding;
+  }
+  .faq--category {
+    break-inside: avoid-column;
+    display: inline-grid;
+    page-break-inside: avoid;
+  }
+}
+
+@supports (break-inside: avoid-column) {
+  .faq--category {
+    display: block;
+  }
+}
 
 .faq--category {
   &:not(:last-child) {
@@ -159,7 +177,7 @@ $faq-padding: 2rem;
         {
           "id": "category",
           "type": "select",
-          "label": "Platform",
+          "label": "Category",
           "options": [
             { "value": "products", "label": "Products"},
             { "value": "shipping", "label": "Shipping"},
@@ -183,6 +201,194 @@ $faq-padding: 2rem;
         }
       ]
     }
-  ]
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "What are your Adaptogenic Blends?",
+          "answer": "<p>Our Adaptogenic Blends are scientifically formulated blends of well researched adaptogens, medicinal mushrooms, all-natural nootropics (aka brain boosters), and tonic herbs–designed to help you thrive and feel your best in your daily life.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "What are the effects?",
+          "answer": "<p>All of our blends help your body overcome stress and perform in its optimal state, but the specific effects are different depending on the blend. Orion - Focus helps boost mental clarity and focus, Lepus - Energy helps enhance sustained energy and stamina, Vela helps calm the mind & body and relieve stress & anxiety, Corvus - Sleep helps relax both mind and body to fall into a restful sleep, and Centaurus - Immune helps strengthen immunity and boost overall vitality. See more on each product page. You can also learn more on the effects of adaptogens in this FAQ.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "What do they taste like?",
+          "answer": "<p>Overall, the blends are tasteless in their capsule forms. Our powder blend offerings taste pleasantly herbal, earthy, slightly bitter (as potent herbs should taste), and grounding. Each individual Blend has its own personality and taste. Check out each product page for more notes on their unique flavor. We love the natural flavors of our blends, but if needed, feel free to add almond milk, coconut milk, raw honey, maple syrup, coconut sugar, or any other sweetener of your choice.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "How should I take your blends?",
+          "answer": "<p>Depending on the blend depends on the time of day. For specific instructions we suggest you read each product page for desired effect. With our powder blends we recommend adding a tablespoon of the powder to warm water, coffee, tea, choice of nut milk, or smoothie. Stir, sip, and enjoy the vibe.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "Sometimes the powder settles at the bottom-why does this happen?",
+          "answer": "<p>We don't use any synthetic carriers in our Adaptogenic Blends (which is usually what helps powders flow and mix better into liquid), and only choose to use pure, potent, all-natural herbal extracts. Our Blends mix best into warm drinks like hot coffee, tea, or warm water, and they make great smoothies. If you do find that some of the powder is settling a bit after some time, just give your drink another stir. </p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "What is the recommended dose?",
+          "answer": "<p>For stress relief, immune support and/or focus, we recommend starting with one capsule of our Vela, Centaurus and Orion blend per day with the option to increase as necessary. Looking for an extra ounce of energy? We suggest one capsule of Lepus with your morning coffee and one more capsule with lunch if you are feeling that midday drag. After winding down for the night, we recommend 1-2 capsules of Corvus thirty minutes before you go to bed. Please note, some of our blends are slow-acting and can take up to 14 days to notice a difference.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "Can I take these everyday?",
+          "answer": "<p>F*@k yeah! Noone knows your body quite like you do, therefore you can take them every day or several times a day depending on your specific needs. The goal is to overcome those everyday stressors while restoring balance to your body in order to function at its optimal level. We suggest you do not exceed 6 capsules in one day because your body will only absorb so much of our blends before it will simply pass it through your system.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "How should I store my products?",
+          "answer": "<p>We recommend storing all of our products in a cool, dry place.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "What testing do you do to ensure your products are safe?",
+          "answer": "<p>Each and every one of our ingredients and final products are tested rigorously for quality, purity, and safety from beginning to end. We do our own independent testing at leading labs in the U.S–and we test every ingredient we receive and the final product (once when blended, and again when fully packaged) for microbiology, heavy metals, pesticides, and gluten allergen. We also thoroughly vet all of our partners to ensure they adhere to strict manufacturing and testing guidelines.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "Are your products FDA regulated?",
+          "answer": "<p>Yes, our supplements adhere to the FDA's rules and guidelines for dietary supplements, and follow FDA's cGMP (Current Good Manufacturing Practices) and the labeling and claim guidelines. The FDA does not approve dietary supplements as they do over-the-counter drugs, but they do regulate them to ensure manufacturers are testing and producing their products to be safe. We're also deeply committed to providing high quality, safe products through proper sourcing and rigorous testing.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "Are they certified organic?",
+          "answer": "<p>All of our blends are created with USDA Certified Organic ingredients. Even our Grape Seed Extract and L-Theanine, though extracts, come from organic origins.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "Are your products vegan?",
+          "answer": "<p>They sure are!</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "Are your products gluten-free?",
+          "answer": "<p>You bet!</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "Are your products sugar-free?",
+          "answer": "<p>You guessed it!</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "Can I take them if I'm pregnant/nursing?",
+          "answer": "<p>The FDA urges pregnant women not to take any herbal products without talking to their health-care provider first. We recommend consulting your primary care physician if you are pregnant or nursing.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "Can children take your product?",
+          "answer": "<p>Please consult your physician before providing any of our products to children.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "products",
+          "question": "When should I take extra precautions?",
+          "answer": "<p>If you have an autoimmune disease, a history of high blood pressure or blood clots, or taking any prescription medications, please consult your physician before taking our products.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "shipping",
+          "question": "How quickly will I receive my order?",
+          "answer": "<p>It typically takes up to 1 business day to process orders (orders placed before 12pm ET are generally processed the same day). At checkout, you will be able to select your own shipping method from standard 3-5 business day shipping to faster options.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "shipping",
+          "question": "Which countries do you ship to?",
+          "answer": "<p>We currently only ship to customers within the U.S. and Canada.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "shipping",
+          "question": "How are Canadian customs fees handled?",
+          "answer": "<p>Please note that Canadian orders may have an additional customs fee, including Goods & Service Tax, Provincial Sales Tax, and Canadian Post Handling Fee. We are not responsible for paying fees charged by customs. It is the customer's responsibility to pay these fees.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "shipping",
+          "question": "How can I pay?",
+          "answer": "<p>We accept all major credit cards, Apple pay, and Google pay.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "shipping",
+          "question": "My order is incorrect/missing, help!",
+          "answer": "<p>Dang it, we apologize for not getting it right the first time but we are happy to fix the issue and apologize for the inconveneince. Please email hello@nomadiceffects.com and we'll be sure to get you your correct order ASAP.</p>"
+        }
+      },
+      {
+        "type": "question",
+        "settings": {
+          "category": "wholesale",
+          "question": "Interested in helping the world adapt their vibe?",
+          "answer": "<p>Thank you for your interest! If you're interested in carrying NOMADIC Effects in your store or space, please email us at hello@nomadiceffects.com.</p>"
+        }
+      }
+    ]
+  }
 }
 {% endschema %}

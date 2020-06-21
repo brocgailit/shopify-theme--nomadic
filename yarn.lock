@@ -47,6 +47,6 @@ normalize.css@^8.0.1:
 
 "shopify-web-components@https://github.com/brocgailit/shopify-web-components":
   version "0.0.5"
-  resolved "https://github.com/brocgailit/shopify-web-components#2a1a3c100012fe3dbc49436f8fe9799302963c4a"
+  resolved "https://github.com/brocgailit/shopify-web-components#6109b29c0b44ad9e1a5e2e0f63ecc14dae0d5099"
   dependencies:
     lit-element "^2.3.1"

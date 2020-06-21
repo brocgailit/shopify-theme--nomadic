@@ -67,7 +67,11 @@ $initial-delay: 250ms;
 
 .feature--body {
   grid-area: body;
+  .title {
+    margin-bottom: 0.33em;
+  }
 }
+
 
 .feature--image {
   grid-area: image;
@@ -76,8 +80,6 @@ $initial-delay: 250ms;
   img {
     width: 100%;
     height: auto;
-
-    filter: grayscale(100%) brightness(110%) contrast(150%);
   }
 }
 

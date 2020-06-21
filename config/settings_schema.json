@@ -97,5 +97,16 @@
         "label": "White"
       }
     ]
+  },
+  {
+    "name": "Site Metadata",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Site Icon",
+        "info": "Used for favicon and app icon.  Will be scaled down to 32px by 32px"
+      }
+    ]
   }
 ]

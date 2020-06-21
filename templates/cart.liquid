@@ -1,7 +1,8 @@
-{% render 'page-header', title: 'Your Cart', subtitle: 'Free Shipping on Orders Over $100' %}
+{% render 'page-header', title: 'Your Cart' %}
 <section class="section shopify-section has-background-white">
   {% if cart.item_count > 0 %}
     <form action="/cart" method="post" novalidate class="container checkout">
+      <div class="checkout--items-container">
       {% for item in cart.items %}
         <div class="box checkout--item">
           <figure class="checkout--item--image">
@@ -21,7 +22,7 @@
             </h4>
           </header>
           <div class="checkout--item--footer">
-            {{ item.price | money }}
+            <!-- {{ item.price | money }} -->
             <input class="checkout--item--quantity" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
             {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
             {{ item.line_price | money }}
@@ -29,10 +30,13 @@
           </div>
         </div>
       {% endfor %}
+      </div>
       <div>
-        <p>sub total : {{ cart.total_price | money }}</p>
-        <button type="submit" name="update">Update</button>
-        <button type="submit" name="checkout">Checkout</button>
+        <p style="text-align: right">Subtotal ({{ cart.item_count }} item{% if cart.item_count > 0 or cart.item_count == 0 %}s{% endif %}): {{ cart.total_price | money }}</p>
+        <div style="display: flex; justify-content: center">
+          <button class="button outlined primary" type="submit" name="update">Update</button>&nbsp;
+          <button class="button secondary" type="submit" name="checkout">Checkout</button>
+        </div>
       </div>
     </form>
   {% else %}

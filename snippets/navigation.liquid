@@ -31,6 +31,7 @@
     </div>
   </div>
   <div class="navbar-actions">
+    <!--
     {% if shop.customer_accounts_enabled %}
       <div class="navbar-account">
           {% if customer %}
@@ -42,6 +43,7 @@
           {% endif %}
       </div>
     {% endif %}
+    -->
     <shopify-cart-button href="/cart" class="shopping-cart--button" id="shopping-cart" quantity="{{ cart.item_count }}">
       {% render 'shopping-cart.svg' %}
     </shopify-cart-button>

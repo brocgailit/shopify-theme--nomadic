@@ -1,6 +1,10 @@
 .checkout {
-  display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.checkout--items-container {
+  width: 100%;
 }
 
 .checkout--item {
@@ -8,6 +12,7 @@
   grid-row-gap: $size-8;
   grid-column-gap: $size-8;
   grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
   grid-template-areas:
     'image header'
     'image footer'
@@ -15,6 +20,7 @@
 
 .checkout--item--image {
   grid-area: image;
+  height: 100px;
 }
 
 .checkout--item--header,

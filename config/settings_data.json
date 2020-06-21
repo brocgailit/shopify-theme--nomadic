@@ -29,6 +29,7 @@
       "size_6": "1rem",
       "size_7": "0.9rem",
       "size_8": "0.7rem",
+      "icon": "shopify:\/\/shop_images\/nomadic-app-icon.png",
       "sections": {
         "hero": {
           "type": "hero",
@@ -37,7 +38,7 @@
               "type": "button",
               "settings": {
                 "label": "Shop Adaptogens",
-                "action": "shopify:\/\/collections",
+                "action": "shopify:\/\/collections\/adaptogens",
                 "style": "normal",
                 "fullwidth": true
               }
@@ -48,32 +49,78 @@
           ],
           "settings": {
             "mannaz": true,
+            "filter": true,
             "title": "Adapt your vibe.",
             "subtitle": "100% Organic Supplements",
-            "image": "shopify:\/\/shop_images\/palm-trees-sky.jpg"
+            "image": "shopify:\/\/shop_images\/palm-trees-sky.jpg",
+            "align": "center"
           }
         },
         "quote": {
           "type": "quote",
           "settings": {
-            "quote": "<p>It's interesting to talk to young comedians. I love it because it makes me go, 'Oh, that's how I can be funny.'</p>",
-            "author": "Bob Sagat",
-            "source_url": "https://www.brainyquote.com/quotes/bob_saget_784877",
-            "source_name": "BrainyQuote"
+            "quote": "<p>If our body and mind has a biological boost, like adaptogens, then we will be less likely to get sick.</p>",
+            "author": "Leslie Korn, PhD",
+            "source_url": "https://drlesliekorn.com/2018/01/adaptogens-herbal-medicines-stress/",
+            "source_name": "School of Natural Health Sciences"
           }
+        },
+        "feature-columns": {
+          "type": "feature-columns",
+          "settings": {
+            "title": "Benefits",
+            "subtitle": "Adapt your vibe.",
+            "content": "<p>Adaptogens help people manage anxiety, pain, and focus.</p>",
+            "blocks": ""
+          },
+          "blocks":  {
+            "feature-1": {
+              "type": "feature",
+              "settings": {
+                "title": "Immune System",
+                "subtitle": "Bolster your internal defense system.",
+                "content": "<p>Nunc porttitor, ipsum a vestibulum placerat, risus orci dapibus enim, fringilla efficitur sapien ex vitae lorem. Donec pulvinar ex ut nulla lobortis consequat. Maecenas luctus et nunc et elementum.</p>",
+                "image": "shopify:\/\/shop_images\/photo_2020-05-01_08.06.29.jpeg"
+              }
+            },
+            "feature-2": {
+              "type": "feature",
+              "settings": {
+                "title": "Stress & Anxiety",
+                "subtitle": "Dealing with stress and anxiety sucks.",
+                "content": "<p>Nunc porttitor, ipsum a vestibulum placerat, risus orci dapibus enim, fringilla efficitur sapien ex vitae lorem. Donec pulvinar ex ut nulla lobortis consequat. Maecenas luctus et nunc et elementum.</p>",
+                "image": "shopify:\/\/shop_images\/hack_your_stress_with_nomadic_effects_vela.jpg"
+              }
+            },
+            "feature-3": {
+              "type": "feature",
+              "settings": {
+                "title": "Focus",
+                "subtitle": "Because we are too damn distracted.",
+                "content": "<p>Nunc porttitor, ipsum a vestibulum placerat, risus orci dapibus enim, fringilla efficitur sapien ex vitae lorem. Donec pulvinar ex ut nulla lobortis consequat. Maecenas luctus et nunc et elementum.</p>",
+                "image": "shopify:\/\/shop_images\/palm-trees-sky.jpg"
+              }
+            }
+          },
+          "block_order": [
+            "feature-1",
+            "feature-2",
+            "feature-3"
+          ]
         },
         "feature": {
           "type": "feature",
           "settings": {
-            "title": "Enter your title.",
-            "text": "<p>Describe the stuff?</p>"
+            "title": "Adapt Your Vibe",
+            "image": "shopify:\/\/shop_images\/16422395_1604665819561371_7189501239103132403_o.jpg",
+            "text": "<p>&ldquo;Just finished my first 30 days and I am a big fan! These positively effected my every day activities and I am hooked.&rdquo;</p><p> — William Saunders, Professional Photographer & Entrepreneur</p>"
           },
           "blocks": {
             "call-to-action": {
               "type": "button",
               "settings": {
                 "label": "Shop Adaptogens",
-                "action": "shopify:\/\/collections",
+                "action": "shopify:\/\/collections\/adaptogens",
                 "style": "arrow",
                 "fullwidth": false
               }
@@ -86,15 +133,60 @@
         "featured-collections": {
           "type": "collection",
           "settings": {
-            "collection": "all"
+            "collection": "adaptogens"
           }
+        },
+        "social": {
+          "type": "social-feature",
+          "settings": {
+            "title": "Follow us.",
+            "lightwidget": "b39afda7470f5262bb03fa84dc9ff0c6"
+          },
+          "blocks": {
+            "facebook": {
+              "type": "social",
+              "settings": {
+                "platform": "facebook",
+                "url": "https:\/\/facebook.com\/NomadicEffects"
+              }
+            },
+            "twitter": {
+              "type": "social",
+              "settings": {
+                "platform": "twitter",
+                "url": "https:\/\/twitter.com\/nomadiceffects"
+              }
+            },
+            "instagram": {
+              "type": "social",
+              "settings": {
+                "platform": "instagram",
+                "url": "https:\/\/instagram.com\/nomadic.effects"
+              }
+            },
+            "pinterest": {
+              "type": "social",
+              "settings": {
+                "platform": "pinterest",
+                "url": "https:\/\/pinterest.com\/nomadiceffects"
+              }
+            }
+          },
+          "block_order": [
+            "facebook",
+            "twitter",
+            "instagram",
+            "pinterest"
+          ]
         }
       },
       "content_for_index": [
         "hero",
         "quote",
+        "feature-columns",
         "feature",
-        "featured-collections"
+        "featured-collections",
+        "social"
       ]
     }
   }

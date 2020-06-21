@@ -4,6 +4,9 @@
 {% assign tagline = product.metafields.global.tagline %}
 {% assign usage_instructions = product.metafields.global.usage %}
 {% assign ingredients = product.metafields.global.ingredients %}
+{% assign features = product.metafields.global.features %}
+{% assign benefits = product.metafields.global.benefits %}
+{% assign order_instructions = product.metafields.global.order_instructions %}
 
 <header class="product--header">
   {% section 'product-background' %}
@@ -13,12 +16,12 @@
         <a href="{{ current_collection.url }}">{{ current_collection.title }}</a>  
       </li>
       <li>
-        {{ product.title }} {{ tagline }}
+        {{ product.title }}
       </li>
     </ul>
     <div class="product--header--content">
       <div class="product--header--image-container">
-        <figure class="product--header--image product--jar-shadow">
+        <figure class="product--header--image {% if product.type == 'Adaptogen' %}product--jar-shadow{% endif %}">
           <img src="{{ featured_image | img_url: 'medium' }}" alt="{{ featured_image.alt | escape }}">
           <figcaption>{{ featured_image.alt }}</figcaption>
         </figure>
@@ -41,41 +44,75 @@
   </div>
 </header>
 
-<div class="product--info container">
-  <h1 class="title">{{ product.title }}</h1>
-  <h2 class="subtitle">{{ tagline }}</h2>
-  <div>
-    {{ product.description }}
+<section class="shopify-section has-background-white" style="padding-top: 0">
+  <div class="product--info container">
+    <h1 class="title">{{ product.title }}</h1>
+    {% if tagline %}
+      <h2 class="subtitle">{{ tagline }}</h2>
+    {% endif %}
+    <div>
+      {{ product.description }}
+    </div>
+    {% if benefits or features or ingredients %}
+      <div class="product--ingredients">
+        {% if benefits %}
+          <h3>Benefits</h3>
+          <p>
+            {{ benefits | join: ', ' }}
+          </p>
+        {% endif %}
+        {% if features %}
+          <h3>Great for</h3>
+          <p>
+            {{ features | join: ', ' }}
+          </p>
+        {% endif %}
+        {% if ingredients %}
+          <h3>Key Ingredients</h3>
+          <p>
+            {{ ingredients | join: ', ' }}
+          </p>
+        {% endif %}
+      </div>
+    {% endif %}
   </div>
-  <div class="product--ingredients">
-    <h3>Key Ingredients</h3>
-    <p>
-      {{ ingredients | join: ', ' }}
-    </p>
-  </div>
-</div>
+</section>
 
-<div class="has-background-light">
-  <div class="container">
-    <shopify-add-to-cart
-      style="margin: 0 auto"
-      notify="shopping-cart"
-      min="0"
-      quantity="1"
-      variants='{{ product.variants | json }}'
-      hide-total
-    >
-    </shopify-add-to-cart>
+<section class="shopify-section">
+  <div class="container product--order-section">
+    <div>
+      <h3 class="title">Order {{ product.title | upcase }}</h3>
+      {% if order_instructions %}
+      <p>
+        {{ order_instructions }}
+      </p>
+      {% endif %}
+    </div>
+    <div>
+      <shopify-add-to-cart
+        style="margin: 0 auto"
+        notify="shopping-cart"
+        min="0"
+        quantity="1"
+        variants='{{ product.variants | json }}'
+        hide-total
+      >
+      </shopify-add-to-cart>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="container product--usage">
-  <h3 class="title">Usage Instructions</h3>
-  <div>
-    {{ usage_instructions }}
-    {% section 'product-usage' %}
-  </div>
-</div>
+{% if usage_instructions %}
+  <section class="shopify-section has-background-white">
+    <div class="container product--usage">
+      <h3 class="title">Usage Instructions</h3>
+      <div style="margin-top:1em">
+        {{ usage_instructions }}
+        {% section 'product-usage' %}
+      </div>
+    </div>
+  </section>
+{% endif %}
 
 {% section 'product-recommendations' %}
 

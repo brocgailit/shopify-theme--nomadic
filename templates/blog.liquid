@@ -2,13 +2,13 @@
 
 {% render 'page-header', title: blog.title, mannaz: 'small' %}
 
-<div class="container">
+<section class="container">
   <div class="columns">
     {% for article in blog.articles %}
       <div class="column">
         <div class="card">
           <figure class="card--image">
-            <img src="{{ article | img_url: '320x240' }}" alt="{{ article.title }} - Featured Image" />
+            <a href="{{ article.url }}"><img src="{{ article | img_url: '320x240' }}" alt="{{ article.title }} - Featured Image" /></a>
           </figure>
           <div class="card--header">
             <span class="title"><a href="{{ article.url }}">{{ article.title }}</a></span>
@@ -29,7 +29,7 @@
       </div>
     {% endfor %}
   </div>
-</div>
+</section>
 
 {% if paginate.pages > 1 %}
   {{ paginate | default_pagination }}

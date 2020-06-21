@@ -1,0 +1,159 @@
+<div class="container">
+  <header>
+    <h3 class="title">{{ section.settings.title }}</h3>
+    <h4 class="subtitle">{{ section.settings.subtitle }}</h4>
+  </header>
+  <div class="content">
+    {{ section.settings.content }}
+  </div>
+  <ul class="feature--container">
+    {% assign columns = section.blocks | size %}
+    {% for block in section.blocks %}
+      <li style="width: {{ 100 | divided_by: columns }}%; flex-basis: {{ 100 | divided_by: columns }}%;">
+        <figure class="feature--image">
+          <img src="{{ block.settings.image | img_url: '350x250' }}" alt="{{ block.settings.image.alt }}" />
+        </figure>
+        <h5 class="title">{{ block.settings.title }}</h5>
+        <p class="subtitle">{{ block.settings.subtitle }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% stylesheet 'scss' %}
+
+.feature-columns {
+  text-align: center;
+
+  header {
+    margin-bottom: var(--shopify--size-5);
+  }
+
+  .title {
+    font-size: var(--shopify--size-6);
+    font-family: var(--shopify--family-sans);
+    color: var(--shopify--color-grey);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .subtitle {
+    font-family: var(--shopify--family-serif);
+    font-size: var(--shopify--size-3);
+    opacity: 1;
+  }
+
+  .content {
+    margin: 0 auto;
+    max-width: 450px;
+    color: var(--shopify--color-dark-grey);
+  }
+
+  .feature--container {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0 calc(var(--shopify--size-7) * -1);
+
+    li {
+      flex-grow: 1;
+      padding: var(--shopify--size-7);
+    }
+    .title {
+      font-size: var(--shopify--size-7);
+    }
+    .subtitle {
+      font-size: var(--shopify--size-4);
+      color: var(--shopify--color-dark-grey);
+    }
+
+    @media screen and (max-width: 1025px) {
+      flex-wrap: wrap;
+      li {
+        width: 100% !important;
+        flex-basis: 100% !important;
+      }
+    }
+  }
+
+  .feature--image {
+    position: relative;
+    border-radius: var(--shopify--radius);
+    margin-bottom: var(--shopify--size-4);
+    width: 100%;
+
+    &:after {
+      content: '';
+      padding-top: 50%;
+    }
+    img {
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+}
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Feature Columns",
+  "tag": "section",
+  "class": "feature-columns has-background-white",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "subtitle"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "subtitle"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features in Columns (Side-by-Side)",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

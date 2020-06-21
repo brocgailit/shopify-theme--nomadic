@@ -29,6 +29,7 @@ $header-offset: $size-3;
   width: auto;
   max-width: 200px;
   height: 100%;
+  overflow: visible;
 
   img {
     width: 100%;
@@ -140,5 +141,26 @@ $header-offset: $size-3;
   .title {
     font-size: $size-5;
     margin-bottom: $size-6;
+  }
+}
+
+.product--order-section {
+  text-align: center;
+  @include touch {
+    > :first-child {
+      margin-bottom: $size-5;
+    }
+  }
+  @include desktop {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    > * {
+      width: 50%;
+      &:last-child {
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
 }
