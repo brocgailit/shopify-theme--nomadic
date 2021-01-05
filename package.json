@@ -11,7 +11,7 @@
     "watch": "theme watch --notify=./ready.notify"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "lit-element": "^2.3.1",
     "normalize.css": "^8.0.1",
     "shopify-web-components": "https://github.com/brocgailit/shopify-web-components"
